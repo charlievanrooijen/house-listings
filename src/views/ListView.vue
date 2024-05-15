@@ -30,7 +30,7 @@ export default {
       try {
         const response = await axios.get('https://api.intern.d-tt.nl/api/houses', {
           headers: {
-            'X-Api-Key': 'UHM4ojGhxNL8fl5tWqVna1_YIiwPyFRu'
+            'X-Api-Key': process.env.VUE_APP_API_KEY
           }
         });
         this.houses = response.data;
