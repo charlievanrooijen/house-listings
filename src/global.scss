@@ -1,18 +1,12 @@
-$primary-color: #EB5440;
-$primary-black: #000000;
-$secondary-color: #4A4B4C;
-$hyperlink-color: #067BC2;
-$tertiary-light: #E8E8E8;
-$tertiary-dark: #C3C3C3;
-$background-light: #F6F6F6;
-$background-white: #FFFFFF;
+/* src/global.scss */
+@import './custom'; /* Ensure the custom variables are applied */
 
 /* Typography */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: $background-light;
+  background-color: $light;
   margin: 0;
   padding: 0;
 }
@@ -32,7 +26,9 @@ h2 {
   line-height: 1.2;
 }
 
-h3, .desktop-header-inactive-menu, .empty-state-message {
+h3,
+.desktop-header-inactive-menu,
+.empty-state-message {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -40,7 +36,8 @@ h3, .desktop-header-inactive-menu, .empty-state-message {
 }
 
 /* Button and Tabs */
-.button, .tabs {
+.button,
+.tabs {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -81,7 +78,8 @@ h3, .desktop-header-inactive-menu, .empty-state-message {
 }
 
 /* Body Text */
-body, p {
+body,
+p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
   font-size: 18px;
@@ -98,7 +96,7 @@ body, p {
 
 /* Hyperlinks */
 a {
-  color: $hyperlink-color;
+  color: $success;
   text-decoration: none;
 
   &:hover {

@@ -54,6 +54,7 @@ export default {
           }
         });
         this.houses = Array.isArray(response.data) ? response.data : [];
+        console.log(this.houses);
       } catch (error) {
         console.error('Error fetching houses:', error.response ? error.response.data : error.message);
       }
@@ -205,6 +206,10 @@ h2 {
   max-width: 100%;
   height: auto;
   margin-bottom: 16px;
+}
+
+.description{
+  text-align: left
 }
 
 a {

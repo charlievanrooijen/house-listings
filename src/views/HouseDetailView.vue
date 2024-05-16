@@ -1,20 +1,19 @@
 <template>
     <div class="container">
       <div v-if="house">
-        <img :src="house.image" :alt="house.name" class="house-image" />
-        <h1>{{ house.name }}</h1>
-        <p class="address">{{ house.address }}</p>
-        <p class="price">${{ house.price }}</p>
-        <p class="description">{{ house.description }}</p>
-        <p class="rooms">Bedrooms: {{ house.rooms.bedrooms }}</p>
-        <p class="rooms">Bathrooms: {{ house.rooms.bathrooms }}</p>
-        <p class="size">Size: {{ house.size }} sq ft</p>
-        <p class="location">
-          Location: {{ house.location.street }} {{ house.location.houseNumber }}{{ house.location.houseNumberAddition ? house.location.houseNumberAddition : '' }}, {{ house.location.city }}, {{ house.location.zip }}
+        <img :src="house.image" :alt="house.name" class="house-image rounded" />
+        <p class="address house-detail">Adress: <br>{{ house.location.street }} {{ house.location.houseNumber }}{{ house.location.houseNumberAddition ? house.location.houseNumberAddition : '' }}, {{ house.location.city }}, {{ house.location.zip }}</p>
+        <p class="price house-detail"><br>Price: <br>${{ house.price }}</p>
+        <p class="description house-detail">Description :<br>{{ house.description }}</p>
+        <p class="rooms house-detail">Bedrooms: <br>{{ house.rooms.bedrooms }}</p>
+        <p class="rooms house-detail">Bathrooms: <br>{{ house.rooms.bathrooms }}</p>
+        <p class="size house-detail">Size: <br>{{ house.size }} sq ft</p>
+        <p class="location house-detail">
+          Location: <br>{{ house.location.street }} {{ house.location.houseNumber }}{{ house.location.houseNumberAddition ? house.location.houseNumberAddition : '' }}, {{ house.location.city }}, {{ house.location.zip }}
         </p>
-        <p class="construction-year">Construction Year: {{ house.constructionYear }}</p>
-        <p class="garage">Has Garage: {{ house.hasGarage ? 'Yes' : 'No' }}</p>
-        <p class="created-at">Created At: {{ new Date(house.createdAt).toLocaleDateString() }}</p>
+        <p class="construction-year house-detail">Construction Year: <br>{{ house.constructionYear }}</p>
+        <p class="garage house-detail">Has Garage: <br>{{ house.hasGarage ? 'Yes' : 'No' }}</p>
+        <p class="created-at house-detail">Created At: <br>{{ new Date(house.createdAt).toLocaleDateString() }}</p>
       </div>
       <div v-else>
         <p>Loading house details...</p>
@@ -63,6 +62,16 @@
     max-width: 100%;
     height: auto;
     margin-bottom: 16px;
+  }
+
+  p{
+    text-align: left;
+  }
+
+  .house-detail
+  {
+    border-bottom: 1px ridge black;
+    padding: 10px;
   }
   </style>
   
