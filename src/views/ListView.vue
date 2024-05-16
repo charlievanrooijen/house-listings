@@ -12,8 +12,19 @@
         <option value="size-desc">Size (Big to Small)</option>
       </select>
     </div>
-    <div v-if="houses.length">
-      <div v-for="(house, index) in sortedHouses" :key="index" class="house-details house">
+    <div class="input-group flex-nowrap mb-3">
+      <span class="input-group-text" id="addon-wrapping">Search by address</span>
+      <input 
+        v-model="searchQuery" 
+        type="text" 
+        class="form-control" 
+        placeholder="Search" 
+        aria-label="Search" 
+        aria-describedby="addon-wrapping"
+      >
+    </div>
+    <div v-if="filteredHouses.length">
+      <div v-for="(house, index) in filteredHouses" :key="index" class="house-details house">
         <img :src="house.image" :alt="house.name" class="house-details house-image" />
         <h2>{{ house.name }}</h2>
         <p class="house-details address">Location: <br>{{ house.location.street }} {{ house.location.houseNumber }}{{ house.location.houseNumberAddition ? house.location.houseNumberAddition : '' }}, {{ house.location.city }}, {{ house.location.zip }}</p>
@@ -29,6 +40,7 @@
 </template>
 
 
+
 <script>
 import axios from 'axios';
 
@@ -37,12 +49,19 @@ export default {
   data() {
     return {
       houses: [],
-      sortOrder: 'street-asc' // default sort order
+      sortOrder: 'street-asc', // default sort order
+      searchQuery: '' // default search query
     };
   },
   computed: {
     sortedHouses() {
       return this.sortHouses(this.houses);
+    },
+    filteredHouses() {
+      return this.sortedHouses.filter(house => {
+        const address = `${house.location.street} ${house.location.houseNumber}${house.location.houseNumberAddition ? house.location.houseNumberAddition : ''}, ${house.location.city}, ${house.location.zip}`;
+        return address.toLowerCase().includes(this.searchQuery.toLowerCase());
+      });
     }
   },
   methods: {
@@ -97,6 +116,7 @@ export default {
     this.fetchHouses();
   }
 };
+
 
 
 </script>

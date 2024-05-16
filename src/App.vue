@@ -13,6 +13,9 @@
           <li class="nav-item">
             <router-link class="nav-link text-light" to="/about">About</router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link text-light" to="/login">Login</router-link>
+          </li>
         </ul>
       </div>
     </div>
