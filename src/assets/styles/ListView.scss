@@ -1,0 +1,128 @@
+
+@import '../../global.scss';
+
+/* Color Palette */
+$primary-color: #EB5440;
+$primary-black: #000000;
+$secondary-color: #4A4B4C;
+$hyperlink-color: #067BC2;
+$tertiary-light: #E8E8E8;
+$tertiary-dark: #C3C3C3;
+$background-light: #F6F6F6;
+$background-white: #FFFFFF;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: $background-light;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.2;
+  color: $primary-black;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+  color: $primary-black;
+}
+
+.address, .location {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: $secondary-color;
+}
+
+.price {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: $primary-color;
+}
+
+.view-details {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: $hyperlink-color;
+  text-decoration: none;
+}
+
+.view-details:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  background-color: $background-white;
+}
+
+.filter {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: $primary-black;
+}
+
+.filter select {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 4px 8px;
+  border: 1px solid $secondary-color;
+  border-radius: 4px;
+  background-color: $background-white;
+  color: $primary-black;
+}
+
+.house {
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.house-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.description{
+  text-align: left
+}
+
+a {
+  color: $hyperlink-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.house-details
+{
+  text-align: left;
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px ridge black;
+}
