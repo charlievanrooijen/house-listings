@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>Houses List</h1>
+    <h1 class="text-secondary">Houses List</h1>
     <div class="filter">
       <label for="sortOrder">Sort by:</label>
       <select id="sortOrder" v-model="sortOrder" @change="sortHouses">
@@ -13,13 +13,13 @@
       </select>
     </div>
     <div v-if="houses.length">
-      <div v-for="(house, index) in sortedHouses" :key="index" class="house">
-        <img :src="house.image" :alt="house.name" class="house-image" />
+      <div v-for="(house, index) in sortedHouses" :key="index" class="house-details house">
+        <img :src="house.image" :alt="house.name" class="house-details house-image" />
         <h2>{{ house.name }}</h2>
-        <p class="address">{{ house.location.street }} {{ house.location.houseNumber }}{{ house.location.houseNumberAddition ? house.location.houseNumberAddition : '' }}, {{ house.location.city }}, {{ house.location.zip }}</p>
-        <p class="price">${{ house.price }}</p>
-        <p class="size">Size: {{ house.size }} sq ft</p>
-        <router-link :to="{ name: 'HouseDetail', params: { id: house.id } }" class="view-details">View Details</router-link>
+        <p class="house-details address">Location: <br>{{ house.location.street }} {{ house.location.houseNumber }}{{ house.location.houseNumberAddition ? house.location.houseNumberAddition : '' }}, {{ house.location.city }}, {{ house.location.zip }}</p>
+        <p class="house-details price">${{ house.price }}</p>
+        <p class="house-details size">Size: <br>{{ house.size }} sq ft</p>
+        <router-link :to="{ name: 'HouseDetail', params: { id: house.id } }" class="view-details btn btn-success text-light">View Details</router-link>
       </div>
     </div>
     <div v-else>
@@ -219,5 +219,13 @@ a {
   &:hover {
     text-decoration: underline;
   }
+}
+
+.house-details
+{
+  text-align: left;
+  font-size: 1.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px ridge black;
 }
 </style>
