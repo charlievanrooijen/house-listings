@@ -53,13 +53,14 @@
         <textarea class="form-control" id="description" v-model="form.description" :placeholder="house.description" rows="3" required></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Update Listing</button>
-      <button class="btn btn-danger">Delete Listing</button>
+      <button type="button" class="btn btn-danger" @click="deleteListing">Delete Listing</button>
     </form>
     <div v-else>
       <p>Loading house details...</p>
     </div>
   </div>
 </template>
+
 
 <script src="../assets/scripts/EditListing.js"></script>
 <style src="../assets/styles/EditListing.scss" lang="scss"></style>

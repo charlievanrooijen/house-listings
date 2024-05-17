@@ -36,7 +36,7 @@
         <p class="house-details size">Size: <br>{{ house.size }} sq ft</p>
         <p class="house-details size">Bedrooms: <br>{{ house.rooms.bedrooms }} </p>
         <p class="house-details size">Bathrooms: <br>{{ house.rooms.bathrooms }} </p>
-        <router-link :to="{ name: 'HouseDetail', params: { id: house.id } }" class="view-details btn btn-success text-light">View Details</router-link>
+        <router-link :to="{ name: 'detail', params: { id: house.id } }" class="view-details btn btn-success text-light">View Details</router-link>
       </div>
     </div>
     <div v-else>

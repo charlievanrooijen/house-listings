@@ -30,8 +30,8 @@ const routes = [
     component: Login
   },
   {
-    path: '/create-listing',
-    name: 'create-listing',
+    path: '/create',
+    name: 'create',
     component: CreateListing
   },
   {

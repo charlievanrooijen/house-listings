@@ -10,21 +10,21 @@ export default {
   },
   data() {
     return {
-        house: null,
-        form: {
-            price: '',
-            bedrooms: '',
-            bathrooms: '',
-            size: '',
-            streetName: '',
-            houseNumber: '',
-            numberAddition: '',
-            zip: '',
-            city: '',
-            constructionYear: '',
-            hasGarage: false,
-            description: ''
-        }
+      house: null,
+      form: {
+        price: '',
+        bedrooms: '',
+        bathrooms: '',
+        size: '',
+        streetName: '',
+        houseNumber: '',
+        numberAddition: '',
+        zip: '',
+        city: '',
+        constructionYear: '',
+        hasGarage: false,
+        description: ''
+      }
     };
   },
   created() {
@@ -36,7 +36,7 @@ export default {
   methods: {
     async submitForm() {
       try {
-        const response = await axios.put(`https://api.intern.d-tt.nl/api/houses/${this.form.id}`, this.form, {
+        const response = await axios.put(`https://api.intern.d-tt.nl/api/houses/${this.house.id}`, this.form, {
           headers: {
             'X-Api-Key': process.env.VUE_APP_API_KEY
           }
@@ -59,6 +59,21 @@ export default {
         console.log(response.data)
       } catch (error) {
         console.error('Error fetching house details:', error.response ? error.response.data : error.message);
+      }
+    },
+    async deleteListing() {
+      if (window.confirm('Are you sure you want to delete this listing?')) {
+        try {
+          const response = await axios.delete(`https://api.intern.d-tt.nl/api/houses/${this.house.id}`, {
+            headers: {
+              'X-Api-Key': process.env.VUE_APP_API_KEY
+            }
+          });
+          console.log('Listing deleted successfully:', response.data);
+          this.$router.push('/');
+        } catch (error) {
+          console.error('Error deleting listing:', error.response ? error.response.data : error.message);
+        }
       }
     }
   }
