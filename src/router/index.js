@@ -1,8 +1,12 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import ListView from '../views/ListView.vue'
-import LoginView from '../views/LoginView.vue'
-import HouseDetailView from '../views/HouseDetailView.vue'
+// src/router/index.js
+import { createRouter, createWebHistory } from 'vue-router';
+import HomeView from '../views/HomeView.vue';
+import ListView from '../views/ListView.vue';
+import AboutView from '../views/AboutView.vue';
+import Login from '../views/LoginView.vue';
+import CreateListing from '../views/CreateListingView.vue';
+import EditListing from '../views/EditListingView.vue';
+import DetailView from '../views/DetailView.vue';
 
 const routes = [
   {
@@ -12,29 +16,41 @@ const routes = [
   },
   {
     path: '/list',
-    name: 'list',
+    name: 'List',
     component: ListView
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: LoginView
   },
   {
     path: '/about',
     name: 'about',
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    component: AboutView
   },
   {
-    path: '/house/:id',
-    name: 'HouseDetail',
-    component: HouseDetailView
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/create-listing',
+    name: 'create-listing',
+    component: CreateListing
+  },
+  {
+    path: '/edit/:id',
+    name: 'edit',
+    component: EditListing,
+    props: true
+  },
+  {
+    path: '/detail/:id',
+    name: 'detail',
+    component: DetailView,
+    props: true
   }
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
-})
+});
 
-export default router
+export default router;
