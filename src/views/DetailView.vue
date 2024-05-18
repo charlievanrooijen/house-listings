@@ -14,9 +14,6 @@
       <p class="construction-year house-detail">Construction Year: <br>{{ house.constructionYear }}</p>
       <p class="garage house-detail">Has Garage: <br>{{ house.hasGarage ? 'Yes' : 'No' }}</p>
       <p class="created-at house-detail">Created At: <br>{{ new Date(house.createdAt).toLocaleDateString() }}</p>
-      <div v-if="house.madeByMe">
-        <router-link :to="{ name: 'edit', params: { id: house.id }}" class="btn btn-danger">Edit</router-link>
-      </div>
     </div>
     <div v-else>
       <p>Loading house details...</p>

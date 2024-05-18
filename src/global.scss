@@ -4,7 +4,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: $light;
+  background-color: $danger;
   margin: 0;
   padding: 0;
 }
@@ -107,4 +107,13 @@ a {
   max-width: 1200px;
   margin: 0 auto;
   padding: 16px;
+}
+
+.image-icon
+{
+  width: 1rem;
+}
+
+.bold{
+  font-weight: bolder;
 }

@@ -1,7 +1,9 @@
 <template>
-    <h2 class="p-3">Create New Listing</h2>
-    <div class="container p-3 mt-4 d-flex align-start">
-      <form class="w-100" @submit.prevent="submitForm">
+    <div class="container row p-3 mt-4 d-flex align-start">
+      <div class="col-12 p-0 m-0">
+        <h2 class="p-2">Create New Listing</h2>
+      </div>
+      <form class="col-12" @submit.prevent="submitForm">
         <div class="inputContainer mb-3">
           <label for="price" class="form-label">Price</label>
           <input type="number" class="form-control" id="price" v-model="form.price" required>

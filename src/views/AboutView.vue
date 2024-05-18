@@ -1,11 +1,12 @@
 <template>
   <div class="about">
     <div class="container">
-        <h1 class="animated-text-righttoleft">House Listings Application</h1><br>
+        <div class="text-center">
+            <h1 class="animated-text-righttoleft">House Listings Application</h1><br>
 
-        <h2 class="animated-text-lefttoright">Overview</h2>
-        <p class="p-4">The House Listings Application is a web-based platform that allows users to view, create, edit, and delete house listings. Built with Vue.js, it offers a user-friendly interface for managing house details, including price, bedrooms, bathrooms, size, location, construction year, and more. The application utilizes animations and CSS styling to enhance the user experience, including a typing animation for text on the home page.</p>
-
+            <h2 class="animated-text-lefttoright">Overview</h2>
+            <p class="p-4">The House Listings Application is a web-based platform that allows users to view, create, edit, and delete house listings. Built with Vue.js, it offers a user-friendly interface for managing house details, including price, bedrooms, bathrooms, size, location, construction year, and more. The application utilizes animations and CSS styling to enhance the user experience, including a typing animation for text on the home page.</p>
+        </div>
         <h2>Features</h2>
         <ul class="features-list text-start">
             <li>

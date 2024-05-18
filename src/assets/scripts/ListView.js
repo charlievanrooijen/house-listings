@@ -34,38 +34,38 @@ export default {
         console.error('Error fetching houses:', error.response ? error.response.data : error.message);
       }
     },
-    sortHouses(houses) {
-      if (!Array.isArray(houses)) {
+    toggleSort(sortKey) {
+      if (this.sortOrder.startsWith(sortKey)) {
+        this.sortOrder = this.sortOrder.endsWith('asc') ? `${sortKey}-desc` : `${sortKey}-asc`;
+      } else {
+        this.sortOrder = `${sortKey}-asc`;
+      }
+      this.sortHouses();
+    },
+    sortHouses() {
+      if (!Array.isArray(this.houses)) {
         return [];
       }
+      let sortedHouses = this.houses.slice();
       if (this.sortOrder.startsWith('street')) {
-        return this.sortByStreet(houses);
+        sortedHouses.sort((a, b) => {
+          const streetA = a.location?.street || '';
+          const streetB = b.location?.street || '';
+          const comparison = streetA.localeCompare(streetB);
+          return this.sortOrder.endsWith('asc') ? comparison : -comparison;
+        });
       } else if (this.sortOrder.startsWith('price')) {
-        return this.sortByPrice(houses);
+        sortedHouses.sort((a, b) => {
+          const comparison = a.price - b.price;
+          return this.sortOrder.endsWith('asc') ? comparison : -comparison;
+        });
       } else if (this.sortOrder.startsWith('size')) {
-        return this.sortBySize(houses);
+        sortedHouses.sort((a, b) => {
+          const comparison = a.size - b.size;
+          return this.sortOrder.endsWith('asc') ? comparison : -comparison;
+        });
       }
-      return houses;
-    },
-    sortByStreet(houses) {
-      return houses.slice().sort((a, b) => {
-        const streetA = a.location?.street || '';
-        const streetB = b.location?.street || '';
-        const comparison = streetA.localeCompare(streetB);
-        return this.sortOrder.endsWith('asc') ? comparison : -comparison;
-      });
-    },
-    sortByPrice(houses) {
-      return houses.slice().sort((a, b) => {
-        const comparison = a.price - b.price;
-        return this.sortOrder.endsWith('asc') ? comparison : -comparison;
-      });
-    },
-    sortBySize(houses) {
-      return houses.slice().sort((a, b) => {
-        const comparison = a.size - b.size;
-        return this.sortOrder.endsWith('asc') ? comparison : -comparison;
-      });
+      return sortedHouses;
     },
     clearSearch() {
       this.searchQuery = '';

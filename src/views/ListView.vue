@@ -1,46 +1,71 @@
 <template>
-  <div class="container">
-    <h1 class="text-secondary">Houses List</h1>
-    <div class="filter">
-      <label for="sortOrder">Sort by:</label>
-      <select id="sortOrder" v-model="sortOrder" @change="sortHouses">
-        <option value="street-asc">Street (A-Z)</option>
-        <option value="street-desc">Street (Z-A)</option>
-        <option value="price-asc">Price (Low to High)</option>
-        <option value="price-desc">Price (High to Low)</option>
-        <option value="size-asc">Size (Small to Big)</option>
-        <option value="size-desc">Size (Big to Small)</option>
-      </select>
+  <div class="container bg-danger">
+    <div class="row">
+      <div class="col-6">
+        <h1 class="py-3 text-dark">Houses</h1>
+      </div>
+      <div class="col-6 d-flex flex-row-reverse">
+        <div>  
+          <a class="btn btn-primary text-light" href="/create"><i class="fa-solid fa-plus"></i> CREATE NEW</a>
+        </div>
+      </div>
     </div>
-    <div class="input-group flex-nowrap mb-3">
-      <span class="input-group-text" id="addon-wrapping">Search by address</span>
-      <input 
-        v-model="searchQuery" 
-        type="text" 
-        class="form-control" 
-        placeholder="Search" 
-        aria-label="Search" 
-        aria-describedby="addon-wrapping"
-      >
-    <button class="btn btn-outline-secondary" type="button" @click="clearSearch">Clear</button>
+    <div class="row">
+      <div class="col-6">
+        <div class="input-group flex-nowrap mb-3 text-secondary">
+          <input 
+            v-model="searchQuery" 
+            type="text" 
+            class="form-control ps-5 bg-info" 
+            placeholder="Search for a house" 
+            aria-label="Search" 
+            aria-describedby="addon-wrapping"
+          >
+          <span class="position-absolute top-50 start-0 translate-middle-y ms-3">
+            <i class="fas fa-search"></i>
+          </span>
+        </div>
+      </div>
+      <div class="col-6 d-flex flex-row-reverse">
+        <div>
+          <button class="btn btn-left btn-primary text-light px-5 font-weight-bold" @click="toggleSort('street')">Street</button>
+          <button class="btn btn-center btn-warning text-light px-5 font-weight-bold" @click="toggleSort('price')">Price</button>
+          <button class="btn btn-right btn-primary text-light px-5 font-weight-bold" @click="toggleSort('size')">Size</button>
+        </div>
+      </div>
     </div>
+
     <div v-if="filteredHouses.length">
-      <div>
+      <!-- <div>
         {{ filteredHouses.length }} Results found
-      </div>
-      <div v-for="(house, index) in filteredHouses" :key="index" class="house-details house">
-        <img :src="house.image" :alt="house.name" class="house-details house-image" />
-        <h2>{{ house.name }}</h2>
-        <p class="house-details address">Location: <br>{{ house.location.street }} {{ house.location.houseNumber }}{{ house.location.houseNumberAddition ? house.location.houseNumberAddition : '' }}, {{ house.location.city }}, {{ house.location.zip }}</p>
-        <p class="house-details price">${{ house.price }}</p>
-        <p class="house-details size">Size: <br>{{ house.size }} sq ft</p>
-        <p class="house-details size">Bedrooms: <br>{{ house.rooms.bedrooms }} </p>
-        <p class="house-details size">Bathrooms: <br>{{ house.rooms.bathrooms }} </p>
-        <router-link :to="{ name: 'detail', params: { id: house.id } }" class="view-details btn btn-success text-light">View Details</router-link>
+      </div> -->
+      <div v-for="(house, index) in filteredHouses" :key="index" class="house rounded bg-light">
+        <router-link style="text-decoration: none; " router-link :to="{ name: 'detail', params: { id: house.id } }" >
+          <div class="row">
+            <div class="col-4">
+              <img :src="house.image" :alt="house.name" class="house-image" />
+            </div>
+            <div class="col-6">
+            <p class="m-0 p-0 house-details text-dark address bold">{{ house.location.street }} {{ house.location.houseNumber }}</p>
+            <p class="m-0 py-2 house-details text-dark">€ {{ house.price }}</p>
+            <p class="m-0 p-0 house-details text-secondary">{{ house.location.houseNumberAddition + " " ? house.location.houseNumberAddition : '' }} {{ house.location.city }} {{ house.location.zip }}</p>
+              <div class="icon-wrapper d-flex">
+                <span class="py-3 text-dark text-left"><img class="image-icon" src="../assets/images/ic_bed@3x.png"> {{ house.rooms.bedrooms }}</span>
+                <span class="p-3 text-dark text-left"><img class="image-icon" src="../assets/images/ic_bath@3x.png"> {{ house.rooms.bathrooms }} </span>
+                <span class="pr-3 pt-3 pb-3 text-dark text-left"><img class="image-icon" src="../assets/images/ic_size@3x.png"> {{ house.size }} m²</span>
+              </div>  
+            </div>
+          </div>
+          <div v-if="house.madeByMe">
+            <router-link :to="{ name: 'edit', params: { id: house.id }}" class="btn btn-danger">Edit</router-link>
+          </div>
+        </router-link>
       </div>
     </div>
-    <div v-else>
-      <p>No houses available.</p>
+    <div v-else style="margin: 17rem;">
+      <img class="w-100" src="../assets/images/img_empty_houses@3x.png">
+      <h2 class="text-center mt-5">No results found.</h2>
+      <h2 class="text-center">Please try another keyword.</h2>
     </div>
   </div>
 </template>
