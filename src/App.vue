@@ -21,7 +21,6 @@
         </div>
       </div>
     </nav>
-    <router-view @login="login" />
   </div>
 </template>
 <style src="./assets/styles/Navbar.scss" lang="scss"></style>
