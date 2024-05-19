@@ -8,7 +8,7 @@ import DetailView from '../views/DetailView.vue';
 
 const routes = [
   {
-    path: '/list',
+    path: '/',
     name: 'home',
     component: ListView
   }, 
