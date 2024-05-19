@@ -6,7 +6,9 @@ export default {
     return {
       houses: [],
       sortOrder: 'street-asc',
-      searchQuery: ''
+      searchQuery: '',
+      showModal: false,
+      houseToDelete: null
     };
   },
   computed: {
@@ -35,19 +37,34 @@ export default {
       }
     },
     async deleteListingById(id) {
-      if (window.confirm('Are you sure you want to delete this listing?')) {
-        try {
-          const response = await axios.delete(`https://api.intern.d-tt.nl/api/houses/${id}`, {
-            headers: {
-              'X-Api-Key': process.env.VUE_APP_API_KEY
-            }
-          });
-          console.log('Listing deleted successfully:', response.data);
-          this.$router.push('/list');
-        } catch (error) {
-          console.error('Error deleting listing:', error.response ? error.response.data : error.message);
-        }
+      try {
+        const response = await axios.delete(`https://api.intern.d-tt.nl/api/houses/${id}`, {
+          headers: {
+            'X-Api-Key': process.env.VUE_APP_API_KEY
+          }
+        });
+        console.log('Listing deleted successfully:', response.data);
+        this.fetchHouses(); // Refresh the list
+        this.closeModal(); // Close the modal
+      } catch (error) {
+        console.error('Error deleting listing:', error.response ? error.response.data : error.message);
       }
+    },
+    showDeleteModal(id) {
+      this.houseToDelete = id;
+      this.showModal = true;
+    },
+    closeModal() {
+      this.showModal = false;
+      this.houseToDelete = null;
+    },
+    confirmDelete() {
+      if (this.houseToDelete) {
+        this.deleteListingById(this.houseToDelete);
+      }
+    },
+    preventNavigation(event) {
+      event.stopPropagation();
     },
     toggleSort(sortKey) {
       if (this.sortOrder.startsWith(sortKey)) {
