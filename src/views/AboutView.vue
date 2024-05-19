@@ -70,7 +70,10 @@
 
 
         <h1>About the developer</h1><br>
-        <h2>Charlie van Rooijen </h2><br>
+        <h2>Charlie van Rooijen </h2>
+        <p class="tech-list">
+            This is my first time working in VueJS
+        </p>
         <p class="tech-list">
             I am a dedicated and versatile software developer with experience in both front-end and back-end development. My career includes working on a VR game at 360Fashion, enhancing CMS functionality at Garden Connect, and gaining integration consultancy expertise at Devoteam. Additionally, I have contributed to various projects at 4BIS Innovations and handled PHP development at Winst uit je Woning. My educational background from Codam Coding College and Nova College has equipped me with a strong foundation in software engineering, game design, and development.
         </p>

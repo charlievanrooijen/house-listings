@@ -2,7 +2,7 @@
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid container">
-        <router-link style="width: 15%;" class="navbar-brand text-light" to="/">
+        <router-link style="width: 15%;" class="navbar-brand text-light" to="/list">
           <img class="w-100" src="./assets/images/img_logo_dtt@3x.png">
         </router-link>
         <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -12,7 +12,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
             <li class="nav-item mx-4">
-              <router-link class="nav-link text-dark" to="/"><h2>Houses</h2></router-link>
+              <router-link class="nav-link text-dark" to="/list"><h2>Houses</h2></router-link>
             </li>
             <li class="nav-item mx-4">
               <router-link class="nav-link text-warning" to="/about"><h2>About</h2></router-link>

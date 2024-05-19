@@ -9,10 +9,10 @@ import DetailView from '../views/DetailView.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '/list',
     name: 'home',
     component: ListView
-  },
+  }, 
   {
     path: '/about',
     name: 'about',

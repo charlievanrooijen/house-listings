@@ -16,6 +16,24 @@
 
   .house-detail
   {
-    border-bottom: 1px ridge black;
     padding: 10px;
+  }
+
+  .icon-container
+  {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: left;
+    gap: 20px;
+  }
+
+  .location
+  {
+    padding: 0;
+  }
+
+  .house-detail-container
+  {
+    padding: 1rem;
   }

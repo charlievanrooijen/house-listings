@@ -34,6 +34,21 @@ export default {
         console.error('Error fetching houses:', error.response ? error.response.data : error.message);
       }
     },
+    async deleteListingById(id) {
+      if (window.confirm('Are you sure you want to delete this listing?')) {
+        try {
+          const response = await axios.delete(`https://api.intern.d-tt.nl/api/houses/${id}`, {
+            headers: {
+              'X-Api-Key': process.env.VUE_APP_API_KEY
+            }
+          });
+          console.log('Listing deleted successfully:', response.data);
+          this.$router.push('/list');
+        } catch (error) {
+          console.error('Error deleting listing:', error.response ? error.response.data : error.message);
+        }
+      }
+    },
     toggleSort(sortKey) {
       if (this.sortOrder.startsWith(sortKey)) {
         this.sortOrder = this.sortOrder.endsWith('asc') ? `${sortKey}-desc` : `${sortKey}-asc`;

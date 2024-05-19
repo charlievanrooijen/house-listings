@@ -30,6 +30,7 @@ export default {
           }
         });
         console.log('Listing created successfully:', response.data);
+        this.$router.push('/');
         // Reset form after submission
         this.form = {
           price: '',
