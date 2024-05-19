@@ -18,18 +18,6 @@
               <router-link class="nav-link text-warning" to="/about"><h2>About</h2></router-link>
             </li>
           </ul>
-          <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-            <li class="nav-item p-3" v-if="!isLoggedIn">
-              <router-link class="nav-link text-dark" to="/login">
-                <font-awesome-icon :icon="['fas', 'user']" />
-              </router-link>
-            </li>
-            <li class="nav-item p-3" v-if="isLoggedIn">
-              <a class="nav-link text-dark" href="#" @click="logout">
-                <font-awesome-icon :icon="['fas', 'sign-out-alt']" />
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
     </nav>
@@ -37,4 +25,3 @@
   </div>
 </template>
 <style src="./assets/styles/Navbar.scss" lang="scss"></style>
-<script src="./assets/scripts/Logout.js"></script>
