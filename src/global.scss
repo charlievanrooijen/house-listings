@@ -118,7 +118,6 @@ a {
 .image-upload-container {
   border-style: dashed solid;
   border: dashed 0.5rem $info;
-  padding: 5rem;
   position: relative;
 }
 
@@ -128,11 +127,17 @@ a {
   right: 0;
 }
 
+.absolute-top-left {
+  position: absolute;
+  top: 0px;
+  left: 0;
+}
+
 .filter-button {
   padding-top: 0;
   padding-bottom: 0;
 }
 
 .pagecontainer{
-  margin-bottom: 6rem;
+  padding-bottom: 7rem;
 }

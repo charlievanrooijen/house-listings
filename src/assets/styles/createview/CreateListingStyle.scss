@@ -1,3 +1,5 @@
+@import '../../../global.scss';
+
 .inputContainer
 {
     width: 100%;
@@ -10,14 +12,9 @@
 
 .edit-background-image
 {
-    background-image: url("../images/img_background@3x.png");
+    background-image: url("../../images/img_background@3x.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.form-container
-{
-    width: 30% !important;
-    margin-left: 10rem !important;
-    margin-top: 2rem !important;
-}
+

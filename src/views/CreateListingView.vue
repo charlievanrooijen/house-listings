@@ -1,13 +1,14 @@
 <template>
-  <div class="edit-background-image w-100">
-    <div class="form-container bg-transparent row p-3 d-flex align-start w-100">
+  <div class="edit-background-image pagecontainer">
+    <div class="form-container bg-transparent row d-flex align-start p-3 m-0">
       <div>
-        <router-link style="text-decoration: none" to="/">
+        <router-link class="return-link-desktop text-left" to="/">
           <h3 class="text-dark"><i class="fa-solid fa-arrow-left"> </i> Back to overview </h3>
         </router-link>
       </div>
-      <div class="col-12 p-0 m-0">
-        <h2 class="p-2">Create New Listing</h2>
+      <div class="col-12 my-3">
+          <router-link class="return-link-mobile text-dark" to="/"><i style="font-size: 2rem; font-weight: 600" class="fa-solid fa-arrow-left pl-3"></i></router-link>
+          <h2 class="text-dark create-new-title bold m-0">Create New Listing</h2>
       </div>
       <form class="col-12" @submit.prevent="submitForm">
         <div class="inputContainer mb-3">
@@ -36,20 +37,20 @@
           <input placeholder="e.g. Utrecht" type="text" class="form-control" id="city" v-model="form.city" required>
         </div>
         <div class="inputContainer mb-3">
+          <label for="city" class="form-label">Upload picture (PNG or JPG)*</label>
           <input style="display: none;" @change="createImagePreview()" accept="image/*" type='file' id="imginput" />
-          <div id="imageUploadContainer" style="padding: 4rem; display: none;" class="image-upload-container w-50">
+          <div id="imageUploadContainer" style="display: none;" class="image-upload-container w-50">
             <img class="w-100" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
             <img style="
                   position: absolute;
                   top: 0;
                   right: 0%;
                   width: 40px;" id="clearImage" src="../assets/images/ic_clear_white@3x.png"
-                  :onclick="unloadImagePreview()"/>
+              @click="unloadImagePreview()" />
           </div>
           <div onclick="document.getElementById('imginput').click()">
             <div id="imagePreviewContainer">
-              <label for="city" class="form-label">Upload picture (PNG or JPG)*</label>
-              <div id="imageUpload" style="padding: 4rem;" class="image-upload-container w-50">
+              <div id="imageUpload" class="image-upload-container w-50 p-5">
                 <img class="w-100" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
               </div>
             </div>
@@ -100,5 +101,7 @@
     </div>
   </div>
 </template>
-<script src="../assets/scripts/createlisting/CreateListing.js"></script>
-<style src="../assets/styles/CreateListing.scss" lang="scss"></style>
+<script src="../assets/scripts/CreateListing.js"></script>
+<style src="../assets/styles/createview/CreateListingStyle.scss" lang="scss"></style>
+<style src="../assets/styles/createview/CreateListingDesktop.scss" lang="scss"></style>
+<style src="../assets/styles/createview/CreateListingMobile.scss" lang="scss"></style>

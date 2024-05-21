@@ -1,0 +1,26 @@
+@import './CreateListingStyle.scss';
+
+@media (min-width: 1025px) {
+    .form-container
+    {
+        width: 30% !important;
+        margin-left: 10rem !important;
+        margin-top: 2rem !important;
+    }
+
+    .return-link-desktop
+    {
+        text-decoration: none
+    }
+
+    .return-link-mobile
+    {
+        display: none;
+    }
+
+    .create-new-title
+    {
+        margin: 0;
+        text-align: left !important;
+    }
+}

@@ -3,6 +3,8 @@ import axios from 'axios';
 
 export default {
   name: 'CreateListing',
+  imageUploadContainer: null,
+  imagePreviewContainer: null,
   data() {
     return {
       form: {
@@ -50,44 +52,33 @@ export default {
         console.error('Error creating listing:', error.response ? error.response.data : error.message);
       }
     },
-    createImagePreview()
-    {
+    createImagePreview() {
       var imgInp = document.getElementById("imginput");
       var imgPreview = document.getElementById("imgPreview");
-      var imageUploadContainer = document.getElementById("imageUploadContainer");
-      var imagePreviewContainer = document.getElementById("imagePreviewContainer");
+      this.imageUploadContainer = document.getElementById("imageUploadContainer");
+      this.imagePreviewContainer = document.getElementById("imagePreviewContainer");
 
-      console.log(imageUploadContainer);
-      console.log(imagePreviewContainer);
-      
+      console.log(this.imageUploadContainer);
+      console.log(this.imagePreviewContainer);
+
       const [file] = imgInp.files
       if (file) {
         imgPreview.src = URL.createObjectURL(file);
       }
       this.imageSelected = true;
 
-      if (imageUploadContainer && imagePreviewContainer) {
-        this.imageSelected = false;
-        imageUploadContainer.style.display = "block";
-        imagePreviewContainer.style.display = "none";
-      } else {
-        console.error('Elements not found in the DOM');
-      }
+      this.imageSelected = false;
+      this.imageUploadContainer.style.display = "block";
+      this.imagePreviewContainer.style.display = "none";
     },
-    unloadImagePreview()
-    {
-      var imageUploadContainer = document.getElementById("imageUploadContainer");
-      var imagePreviewContainer = document.getElementById("imagePreviewContainer");
-      
-      console.log(imageUploadContainer);
-      console.log(imagePreviewContainer);
-
-      if (imageUploadContainer && imagePreviewContainer) {
+    unloadImagePreview() {
+      if(this.imageUploadContainer && this.imagePreviewContainer){
+        console.log("yep");
         this.imageSelected = false;
-        imageUploadContainer.style.display = "none";
-        imagePreviewContainer.style.display = "block";
-      } else {
-        console.error('Elements not found in the DOM');
+        this.imageUploadContainer.style.display = "none";
+        this.imagePreviewContainer.style.display = "block";
+      }else{
+        console.log("nope");
       }
     }
   }
