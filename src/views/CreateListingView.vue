@@ -41,11 +41,7 @@
           <input style="display: none;" @change="createImagePreview()" accept="image/*" type='file' id="imginput" />
           <div id="imageUploadContainer" style="display: none;" class="image-upload-container w-50">
             <img class="w-100" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
-            <img style="
-                  position: absolute;
-                  top: 0;
-                  right: 0%;
-                  width: 40px;" id="clearImage" src="../assets/images/ic_clear_white@3x.png"
+            <img style="position: absolute; top: 0; right: 0%; width: 40px;" id="clearImage" src="../assets/images/ic_clear_white@3x.png"
               @click="unloadImagePreview()" />
           </div>
           <div onclick="document.getElementById('imginput').click()">
@@ -101,6 +97,7 @@
     </div>
   </div>
 </template>
+
 <script src="../assets/scripts/CreateListing.js"></script>
 <style src="../assets/styles/createview/CreateListingStyle.scss" lang="scss"></style>
 <style src="../assets/styles/createview/CreateListingDesktop.scss" lang="scss"></style>
