@@ -2,19 +2,21 @@
   <div class="bg-waring m-0">
     <div class="container bg-transparent">
       <div class="row">
-        <div class="col-6">
-          <h1 class="py-3 text-dark">Houses</h1>
+        <div class="col-12 col-lg-6">
+          <h1 class="py-3 text-dark list-heading">Houses</h1>
         </div>
-        <div class="col-6 d-flex flex-row-reverse">
-          <div>
-            <a class="btn btn-primary text-light" href="/create">
-              <i class="fa-solid fa-plus"></i> CREATE NEW
-            </a>
-          </div>
+        <div class="col-12 col-lg-6 d-flex flex-row-reverse">
+          <a id="create-listing-link-desktop" class="btn btn-primary h-50" href="/create">
+            <i class="fa-solid fa-plus"></i> CREATE NEW
+          </a>
+
+          <a id="create-listing-link-mobile" style="display: flex; text-decoration: none; flex-direction: row-reverse;" class="absolute-top-right p-3" href="/create">
+            <i class="fa-solid fa-plus"></i>
+          </a>
         </div>
       </div>
       <div class="row">
-        <div class="col-6">
+        <div class="col-lg-6 col-sm-12">
           <div class="input-group flex-nowrap mb-3 text-secondary position-relative">
             <input v-model="searchQuery" type="text" class="form-control ps-5 bg-info" placeholder="Search for a house"
               aria-label="Search" aria-describedby="addon-wrapping">
@@ -28,53 +30,51 @@
             </span>
           </div>
         </div>
-        <div class="col-6 d-flex flex-row-reverse">
-          <div>
-            <button class="btn btn-left btn-primary text-light px-5 font-weight-bold"
-              @click="toggleSort('street')">Street</button>
-            <button class="btn btn-center btn-warning text-light px-5 font-weight-bold"
-              @click="toggleSort('price')">Price</button>
-            <button class="btn btn-right btn-primary text-light px-5 font-weight-bold"
-              @click="toggleSort('size')">Size</button>
-          </div>
+        <div class="col-lg-6 col-sm-12 filter-button-container">
+          <button class="btn btn-left btn-primary text-light filter-button"
+            @click="toggleSort('street')">Street</button>
+          <button class="btn btn-center btn-warning text-light filter-button"
+            @click="toggleSort('price')">Price</button>
+          <button class="btn btn-right btn-primary text-light filter-button"
+            @click="toggleSort('size')">Size</button>
         </div>
       </div>
-
+      <div v-if="searchQuery">
+        <h2 class="text-dark py-3">{{ filteredHouses.length }} Results found</h2>
+      </div>
       <div v-if="filteredHouses.length">
-        <div v-for="(house, index) in filteredHouses" :key="index" class="house rounded bg-light">
-          <div class="row w-100">
-            <div class="col-4">
+        <div v-for="(house, index) in filteredHouses" :key="index" class="house rounded bg-light mb-3">
+          <div class="row">
+            <div class="col-4 image-wrapper">
               <router-link style="text-decoration: none;" :to="{ name: 'detail', params: { id: house.id } }">
                 <img :src="house.image" :alt="house.name" class="house-image" />
               </router-link>
             </div>
-            <div class="col-6">
-              <router-link style="text-decoration: none;"
-                :to="{ name: 'detail', params: { id: house.id } }">
-              <p class="m-0 p-0 house-details text-dark address bold">{{ house.location.street }} {{
-                house.location.houseNumber }}</p>
-              <p class="m-0 py-2 house-details text-dark">€ {{ house.price }}</p>
-              <p class="m-0 p-0 house-details text-secondary">{{ house.location.houseNumberAddition ?
-                house.location.houseNumberAddition + " " : '' }}{{ house.location.city }} {{ house.location.zip }}</p>
-              <div class="icon-wrapper d-flex">
-                <span class="py-3 text-dark text-left"><img class="image-icon" src="../assets/images/ic_bed@3x.png">
-                  {{ house.rooms.bedrooms }}</span>
-                <span class="p-3 text-dark text-left"><img class="image-icon" src="../assets/images/ic_bath@3x.png">
-                  {{ house.rooms.bathrooms }} </span>
-                <span class="pr-3 pt-3 pb-3 text-dark text-left"><img class="image-icon"
-                    src="../assets/images/ic_size@3x.png"> {{ house.size }} m²</span>
-              </div>
-              </router-link>
-            </div>
-            <div class="col-2">
-              <div class="d-flex flex-row-reverse" v-if="house.madeByMe">
-                <a style="width: 25px;" @click.stop="showDeleteModal(house.id)">
-                  <img class="icon w-100" src="../assets/images/ic_delete@3x.png">
+            <div class="col-8 position-relative">
+              <div class="edit-delete-container" v-if="house.madeByMe">
+                <a @click.stop="showDeleteModal(house.id)">
+                  <img class="icon w-50"  src="../assets/images/ic_delete@3x.png">
                 </a>
-                <router-link class="mx-3" style="width: 25px;" :to="{ name: 'edit', params: { id: house.id } }">
-                  <img class="icon w-100" src="../assets/images/ic_edit@3x.png">
+                <router-link :to="{ name: 'edit', params: { id: house.id } }">
+                  <img class="icon w-50" src="../assets/images/ic_edit@3x.png">
                 </router-link>
               </div>
+              <router-link style="text-decoration: none;" :to="{ name: 'detail', params: { id: house.id } }">
+                <p class="m-0 p-0 house-details text-dark address bold">{{ house.location.street }} {{
+                  house.location.houseNumber }}</p>
+                <p class="m-0 py-lg-2 house-details text-dark">€ {{ house.price }}</p>
+                <p class="m-0 p-0 house-details text-secondary">
+                  {{ house.location.zip }} {{ house.location.houseNumberAddition ?
+                    house.location.houseNumberAddition + " " : '' }}{{ house.location.city }} </p>
+                <div class="icon-wrapper d-flex w-100">
+                  <span class="py-3 text-dark text-left"><img class="image-icon" src="../assets/images/ic_bed@3x.png">
+                    {{ house.rooms.bedrooms }}</span>
+                  <span class="p-3 text-dark text-left"><img class="image-icon" src="../assets/images/ic_bath@3x.png">
+                    {{ house.rooms.bathrooms }} </span>
+                  <span class="pr-3 pt-3 pb-3 text-dark text-left"><img class="image-icon"
+                      src="../assets/images/ic_size@3x.png"> {{ house.size }} m²</span>
+                </div>
+              </router-link>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
       </div>
 
       <div v-if="showModal" class="modal-overlay">
-        <div class="modal-content bg-light w-25">
+        <div class="modal-content bg-light w-lg-25 w-100">
           <h2 class="bold">Delete listing</h2>
           <h3 class="mt-4 text-center m-0">Are you sure you want to delete this listing?</h3>
           <h3 class="mb-4 text-center">This action cannot be undone</h3>
@@ -101,8 +101,24 @@
         </div>
       </div>
     </div>
+    <footer class="footer" style="display: none;">
+      <div class="row m-0">
+        <div class="col-6 d-flex justify-content-center p-3">
+          <router-link :to="{ name : home}">
+            <img class="w-100 p-2 p-md-3" src="../assets/images/ic_mobile_navigarion_home_active@3x.png">
+          </router-link>
+        </div>
+        <div class="col-6 d-flex justify-content-center p-3">
+          <router-link :to="{ name : detail}">
+            <img class="w-100 p-2 p-md-3" src="../assets/images/ic_mobile_navigarion_info@3x.png">
+          </router-link>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script src="../assets/scripts/ListView.js"></script>
-<style src="../assets/styles/ListView.scss" lang="scss"></style>
+<style src="../assets/styles/listview/ListViewDesktop.scss" lang="scss"></style>
+<style src="../assets/styles/listview/ListViewMobile.scss" lang="scss"></style>
+<style src="../assets/styles/listview/ListViewStyling.scss" lang="scss"></style>

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="navbar-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid container">
         <router-link style="width: 15%;" class="navbar-brand text-light" to="/">
@@ -24,4 +24,4 @@
   </div>
   <router-view />
 </template>
-<style src="./assets/styles/Navbar.scss" lang="scss"></style>
+<style src="./assets/styles/navbar/Navbar.scss" lang="scss"></style>

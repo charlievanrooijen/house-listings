@@ -1,5 +1,4 @@
-@import './custom'; 
-
+@import './custom';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap');
 
 body {
@@ -13,14 +12,14 @@ body {
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 32px;
+  font-size: 2rem; // 32px / 16px (default root font size)
   line-height: 1.2;
 }
 
 h2 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 22px;
+  font-size: 1.375rem; // 22px / 16px
   line-height: 1.2;
 }
 
@@ -29,7 +28,7 @@ h3,
 .empty-state-message {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.125rem; // 18px / 16px
   line-height: 1.2;
 }
 
@@ -38,7 +37,7 @@ h3,
 .tabs {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.125rem; // 18px / 16px
   line-height: 1.2;
 }
 
@@ -46,7 +45,7 @@ h3,
 .back-button-label {
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1rem; // 16px / 16px
   line-height: 1.2;
 }
 
@@ -54,7 +53,7 @@ h3,
 .input-field-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  font-size: 14px;
+  font-size: 0.875rem; // 14px / 16px
   line-height: 1.2;
 }
 
@@ -63,7 +62,7 @@ h3,
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   font-style: italic;
-  font-size: 14px;
+  font-size: 0.875rem; // 14px / 16px
   line-height: 1.2;
 }
 
@@ -71,7 +70,7 @@ h3,
 .listing-information {
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1rem; // 16px / 16px
   line-height: 1.2;
 }
 
@@ -80,7 +79,7 @@ body,
 p {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 1.125rem; // 18px / 16px
   line-height: 1.5;
 }
 
@@ -88,7 +87,7 @@ p {
 .input-field {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem; // 14px / 16px
   line-height: 1.2;
 }
 
@@ -102,19 +101,34 @@ a {
   }
 }
 
-/* Container */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 16px;
 }
 
-.image-icon
-{
+.image-icon {
   width: 1rem;
 }
 
-.bold{
+.bold {
   font-weight: bolder;
 }
 
+.image-upload-container {
+  border-style: dashed solid;
+  border: dashed 0.5rem $info;
+  padding: 5rem;
+  position: relative;
+}
+
+.absolute-top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.filter-button {
+  padding-top: 0;
+  padding-bottom: 0;
+}

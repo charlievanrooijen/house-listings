@@ -1,0 +1,82 @@
+@import './ListViewStyling.scss';
+
+/* Mobile-specific styles */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+    padding: 8px;
+  }
+
+  .filter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .house {
+    margin: 8px 0;
+  }
+
+  .modal-content {
+    padding: 16px;
+  }
+
+  .filter-button-container {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .filter-button {
+    padding: 0.5rem !important;
+    width: 33%;
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: $light;
+    color: white;
+    text-align: center;
+  }
+
+  .list-heading {
+    text-align: center;
+  }
+
+  #create-listing-link-mobile {
+    color: $dark;
+    width: 100%;
+    i {
+      font-size: 2rem;
+    }
+  }
+
+  #create-listing-link-desktop {
+    display: none;
+  }
+
+  .house-details {
+    font-size: 0.7em;
+
+    .address {
+      font-size: 0.6em;
+    }
+  }
+
+  .icon-wrapper {
+    font-size: 0.8em;
+  }
+
+  .edit-delete-container {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+  }
+}

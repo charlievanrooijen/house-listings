@@ -49,6 +49,46 @@ export default {
       } catch (error) {
         console.error('Error creating listing:', error.response ? error.response.data : error.message);
       }
+    },
+    createImagePreview()
+    {
+      var imgInp = document.getElementById("imginput");
+      var imgPreview = document.getElementById("imgPreview");
+      var imageUploadContainer = document.getElementById("imageUploadContainer");
+      var imagePreviewContainer = document.getElementById("imagePreviewContainer");
+
+      console.log(imageUploadContainer);
+      console.log(imagePreviewContainer);
+      
+      const [file] = imgInp.files
+      if (file) {
+        imgPreview.src = URL.createObjectURL(file);
+      }
+      this.imageSelected = true;
+
+      if (imageUploadContainer && imagePreviewContainer) {
+        this.imageSelected = false;
+        imageUploadContainer.style.display = "block";
+        imagePreviewContainer.style.display = "none";
+      } else {
+        console.error('Elements not found in the DOM');
+      }
+    },
+    unloadImagePreview()
+    {
+      var imageUploadContainer = document.getElementById("imageUploadContainer");
+      var imagePreviewContainer = document.getElementById("imagePreviewContainer");
+      
+      console.log(imageUploadContainer);
+      console.log(imagePreviewContainer);
+
+      if (imageUploadContainer && imagePreviewContainer) {
+        this.imageSelected = false;
+        imageUploadContainer.style.display = "none";
+        imagePreviewContainer.style.display = "block";
+      } else {
+        console.error('Elements not found in the DOM');
+      }
     }
   }
 };

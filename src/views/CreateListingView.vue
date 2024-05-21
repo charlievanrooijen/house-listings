@@ -36,12 +36,23 @@
           <input placeholder="e.g. Utrecht" type="text" class="form-control" id="city" v-model="form.city" required>
         </div>
         <div class="inputContainer mb-3">
-          <div class="mb-3">
-            <label for="image" class="form-label">Upload Image</label>
-            <input type="file" class="form-control" id="image" @change="handleImageUpload">
+          <input style="display: none;" @change="createImagePreview()" accept="image/*" type='file' id="imginput" />
+          <div id="imageUploadContainer" style="padding: 4rem; display: none;" class="image-upload-container w-50">
+            <img class="w-100" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
+            <img style="
+                  position: absolute;
+                  top: 0;
+                  right: 0%;
+                  width: 40px;" id="clearImage" src="../assets/images/ic_clear_white@3x.png"
+                  :onclick="unloadImagePreview()"/>
           </div>
-          <div v-if="imagePreview" class="mb-3">
-            <img :src="imagePreview" alt="Image Preview" class="img-thumbnail" style="max-width: 300px;">
+          <div onclick="document.getElementById('imginput').click()">
+            <div id="imagePreviewContainer">
+              <label for="city" class="form-label">Upload picture (PNG or JPG)*</label>
+              <div id="imageUpload" style="padding: 4rem;" class="image-upload-container w-50">
+                <img class="w-100" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
+              </div>
+            </div>
           </div>
         </div>
         <div class="inputContainer mb-3">
@@ -89,7 +100,5 @@
     </div>
   </div>
 </template>
-
-
 <script src="../assets/scripts/CreateListing.js"></script>
 <style src="../assets/styles/CreateListing.scss" lang="scss"></style>
