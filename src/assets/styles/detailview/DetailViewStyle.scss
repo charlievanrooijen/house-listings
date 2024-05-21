@@ -1,0 +1,35 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.house-image {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+p {
+  text-align: left;
+}
+
+.house-detail {
+  padding: 10px;
+}
+
+.icon-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: left;
+  gap: 20px;
+}
+
+.location {
+  padding: 0;
+}
+
+.house-detail-container {
+  padding: 1rem;
+}

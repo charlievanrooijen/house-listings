@@ -11,7 +11,7 @@
           <div v-if="house.image">
             <img :src="house.image" :alt="house.name" class="house-image rounded m-0" />
           </div>
-          <div class="house-detail-container bg-light">
+          <div class="house-detail-container rounded bg-light">
             <div class="row">
               <div class="col-12">
                 <h1>
@@ -57,8 +57,8 @@
           </div>
         </div>
         <div class="col-12 col-lg-5 px-lg-5">
-          <h2>Recommended for you</h2>
-          <div class="row bg-light my-1 p-2 rounded">
+          <h2 class="my-3">Recommended for you</h2>
+          <div class="row bg-light my-1 p-2 rounded mx-1">
             <div class="col-5 d-flex align-items-center">
               <img :src="house.image" :alt="house.name" class="house-image rounded m-0" />
             </div>
@@ -101,4 +101,4 @@
 </template>
 
 <script src="../assets/scripts/DetailView.js"></script>
-<style src="../assets/styles/detailview/DetailView.scss" lang="scss"></style>
+<style src="../assets/styles/detailview/DetailViewStyle.scss" lang="scss"></style>
