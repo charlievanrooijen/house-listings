@@ -1,6 +1,6 @@
 <template>
   <div class="bg-waring m-0">
-    <div class="container bg-transparent">
+    <div class="container bg-transparent pagecontainer">
       <div class="row">
         <div class="col-12 col-lg-6">
           <h1 class="py-3 text-dark list-heading">Houses</h1>
@@ -79,7 +79,7 @@
           </div>
         </div>
       </div>
-      <div v-else style="margin: 17rem;">
+      <div v-else class="noresult-img">
         <img class="w-100" src="../assets/images/img_empty_houses@3x.png">
         <h2 class="text-center mt-5">No results found.</h2>
         <h2 class="text-center">Please try another keyword.</h2>
@@ -101,20 +101,6 @@
         </div>
       </div>
     </div>
-    <footer class="footer" style="display: none;">
-      <div class="row m-0">
-        <div class="col-6 d-flex justify-content-center p-3">
-          <router-link :to="{ name : home}">
-            <img class="w-100 p-2 p-md-3" src="../assets/images/ic_mobile_navigarion_home_active@3x.png">
-          </router-link>
-        </div>
-        <div class="col-6 d-flex justify-content-center p-3">
-          <router-link :to="{ name : detail}">
-            <img class="w-100 p-2 p-md-3" src="../assets/images/ic_mobile_navigarion_info@3x.png">
-          </router-link>
-        </div>
-      </div>
-    </footer>
   </div>
 </template>
 

@@ -34,16 +34,6 @@
     width: 33%;
   }
 
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: $light;
-    color: white;
-    text-align: center;
-  }
-
   .list-heading {
     text-align: center;
   }
@@ -74,9 +64,15 @@
 
   .edit-delete-container {
     position: absolute;
-    top: 1rem;
+    top: 0 !important;
     right: 1rem;
     display: flex;
     gap: 1rem;
+    width: 25%;
+  }
+
+  .noresult-img
+  {
+    padding: 5rem;
   }
 }

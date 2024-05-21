@@ -1,5 +1,5 @@
 <template>
-  <div class="container bg-transparent">
+  <div class="container bg-transparent pagecontainer">
     <div class="my-3">
       <router-link style="text-decoration: none" to="/">
         <h3 class="text-dark"><i class="fa-solid fa-arrow-left"> </i> Back to overview </h3>
@@ -7,13 +7,13 @@
     </div>
     <div class v-if="house">
       <div class="row">
-        <div class="col-7">
+        <div class="col-12 col-lg7">
           <div v-if="house.image">
             <img :src="house.image" :alt="house.name" class="house-image rounded m-0" />
           </div>
           <div class="house-detail-container bg-light">
             <div class="row">
-              <div class="col-6">
+              <div class="col-12">
                 <h1>
                   {{ house.location.street }} {{ house.location.houseNumber }} {{ house.location.houseNumberAddition }}
                 </h1>
@@ -56,7 +56,7 @@
             </div>
           </div>
         </div>
-        <div class="col-5 px-5">
+        <div class="col-12 col-lg-5 px-lg-5">
           <h2>Recommended for you</h2>
           <div class="row bg-light my-1 p-2 rounded">
             <div class="col-5 d-flex align-items-center">
@@ -101,4 +101,4 @@
 </template>
 
 <script src="../assets/scripts/DetailView.js"></script>
-<style src="../assets/styles/DetailView.scss" lang="scss"></style>
+<style src="../assets/styles/detailview/DetailView.scss" lang="scss"></style>

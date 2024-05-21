@@ -1,6 +1,6 @@
 <template>
-  <div class="edit-background-image ">
-    <div class="form-container bg-transparent row p-3 d-flex align-start">
+  <div class="edit-background-image w-100">
+    <div class="form-container bg-transparent row p-3 d-flex align-start w-100">
       <div>
         <router-link style="text-decoration: none" to="/">
           <h3 class="text-dark"><i class="fa-solid fa-arrow-left"> </i> Back to overview </h3>
@@ -100,5 +100,5 @@
     </div>
   </div>
 </template>
-<script src="../assets/scripts/CreateListing.js"></script>
+<script src="../assets/scripts/createlisting/CreateListing.js"></script>
 <style src="../assets/styles/CreateListing.scss" lang="scss"></style>
