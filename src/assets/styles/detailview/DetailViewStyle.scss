@@ -24,6 +24,7 @@ p {
   display: flex;
   justify-content: left;
   gap: 20px;
+  z-index: 100;
 }
 
 .location {
@@ -31,5 +32,6 @@ p {
 }
 
 .house-detail-container {
+  position: relative;
   padding: 1rem;
 }

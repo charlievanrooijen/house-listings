@@ -7,11 +7,11 @@
         </div>
         <div class="col-12 col-lg-6 d-flex flex-row-reverse">
           <a id="create-listing-link-desktop" class="btn btn-primary h-50" href="/create">
-            <i class="fa-solid fa-plus"></i> CREATE NEW
+            <i class="text-light fa-solid fa-plus"></i> CREATE NEW
           </a>
 
           <a id="create-listing-link-mobile" style="display: flex; text-decoration: none; flex-direction: row-reverse;" class="absolute-top-right p-3" href="/create">
-            <i class="fa-solid fa-plus"></i>
+            <i class="text-dark display-4 fa-solid fa-plus"></i>
           </a>
         </div>
       </div>
@@ -30,7 +30,7 @@
             </span>
           </div>
         </div>
-        <div class="col-lg-6 col-sm-12 filter-button-container">
+        <div v-if="filteredHouses.length" class="col-lg-6 col-sm-12 filter-button-container">
           <button class="btn btn-left btn-primary text-light filter-button"
             @click="toggleSort('street')">Street</button>
           <button class="btn btn-center btn-warning text-light filter-button"
@@ -39,8 +39,8 @@
             @click="toggleSort('size')">Size</button>
         </div>
       </div>
-      <div v-if="searchQuery">
-        <h2 class="text-dark py-3">{{ filteredHouses.length }} Results found</h2>
+      <div v-if="searchQuery && filteredHouses.length">
+        <h2 class="text-dark py-3">{{ filteredHouses.length }} results found</h2>
       </div>
       <div v-if="filteredHouses.length">
         <div v-for="(house, index) in filteredHouses" :key="index" class="house rounded bg-light mb-3">
@@ -51,19 +51,19 @@
               </router-link>
             </div>
             <div class="col-8 position-relative">
-              <div class="edit-delete-container" v-if="house.madeByMe">
-                <a @click.stop="showDeleteModal(house.id)">
-                  <img class="icon w-50"  src="../assets/images/ic_delete@3x.png">
-                </a>
+              <div class="edit-delete-container p-1" v-if="house.madeByMe">
                 <router-link :to="{ name: 'edit', params: { id: house.id } }">
-                  <img class="icon w-50" src="../assets/images/ic_edit@3x.png">
+                  <img class="w-100" src="../assets/images/ic_edit@3x.png">
                 </router-link>
+                <a @click.stop="showDeleteModal(house.id)">
+                  <img class="w-100"  src="../assets/images/ic_delete@3x.png">
+                </a>
               </div>
               <router-link style="text-decoration: none;" :to="{ name: 'detail', params: { id: house.id } }">
                 <p class="m-0 p-0 house-details text-dark address bold">{{ house.location.street }} {{
                   house.location.houseNumber }}</p>
                 <p class="m-0 py-lg-2 house-details text-dark">€ {{ house.price }}</p>
-                <p class="m-0 p-0 house-details text-secondary">
+                <p class="m-0 p-0 house-details text-warning">
                   {{ house.location.zip }} {{ house.location.houseNumberAddition ?
                     house.location.houseNumberAddition + " " : '' }}{{ house.location.city }} </p>
                 <div class="icon-wrapper d-flex w-100">
@@ -81,8 +81,8 @@
       </div>
       <div v-else class="noresult-img">
         <img class="w-100" src="../assets/images/img_empty_houses@3x.png">
-        <h2 class="text-center mt-5">No results found.</h2>
-        <h2 class="text-center">Please try another keyword.</h2>
+        <h3 class="text-center mt-5">No results found.</h3>
+        <h3 class="text-center">Please try another keyword.</h3>
       </div>
 
       <div v-if="showModal" class="modal-overlay">

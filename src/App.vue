@@ -26,12 +26,12 @@
       <div class="row m-0 bg-light">
         <div class="col-6 d-flex justify-content-center p-3">
           <router-link to="/">
-            <img class="w-100 p-2 p-md-3" src="./assets/images/ic_mobile_navigarion_home_active@3x.png">
+            <img class="w-50 p-2 p-md-3" src="./assets/images/ic_mobile_navigarion_home_active@3x.png">
           </router-link>
         </div>
         <div class="col-6 d-flex justify-content-center p-3">
           <router-link to="/about">
-            <img class="w-100 p-2 p-md-3" src="./assets/images/ic_mobile_navigarion_info@3x.png">
+            <img class="w-50 p-2 p-md-3" src="./assets/images/ic_mobile_navigarion_info@3x.png">
           </router-link>
         </div>
       </div>
