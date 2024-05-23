@@ -95,7 +95,7 @@
           <textarea placeholder="Enter description" class="form-control" id="description" v-model="form.description"
             rows="3" required></textarea>
         </div>
-        <button type="submit"  class="btn btn-primary btn-mobile">Create Listing</button>
+        <button type="submit"  class="btn btn-primary btn-mobile text-light bold">POST</button>
       </form>
     </div>
   </div>

@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class v-if="house">
+    <div v-if="house">
       <div class="row">
         <div class="col-12 p-0 col-lg-7">
           <div class="image-wrapper" v-if="house.image">
@@ -42,8 +42,8 @@
                 {{ house.location.zip }}, {{ house.location.city }}
               </h3>
               <div class="absolute-top-right desktop-delete p-4" v-if="house.madeByMe">
-                <router-link :to="{ name: 'edit', params: { id: house.id } }" class="p-5">
-                  <img class="w-25" src="../assets/images/ic_edit@3x.png">
+                <router-link :to="{ name: 'edit', params: { id: house.id } }">
+                  <img class="w-25" style="margin-right: 2rem;" src="../assets/images/ic_edit@3x.png">
                 </router-link>
                 <a @click.stop="showDeleteModal(house.id)">
                   <img class="w-25" src="../assets/images/ic_delete@3x.png">

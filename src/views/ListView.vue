@@ -43,14 +43,14 @@
         <h2 class="text-dark py-3">{{ filteredHouses.length }} results found</h2>
       </div>
       <div v-if="filteredHouses.length">
-        <div v-for="(house, index) in filteredHouses" :key="index" class="house rounded bg-light mb-3">
-          <div class="row">
-            <div class="col-4 image-wrapper">
-              <router-link style="text-decoration: none;" :to="{ name: 'detail', params: { id: house.id } }">
+        <div v-for="(house, index) in filteredHouses" :key="index" class="rounded bg-light mb-3">
+          <div class="row rounded p-2">
+            <div class="col-5 col-lg-4 image-wrapper">
+              <router-link class="d-flex align-items-center h-100" style="text-decoration: none; overflow: hidden" :to="{ name: 'detail', params: { id: house.id } }">
                 <img :src="house.image" :alt="house.name" class="house-image" />
               </router-link>
             </div>
-            <div class="col-8 position-relative">
+            <div class="col-7 col-g-8 position-relative">
               <div class="edit-delete-container p-1" v-if="house.madeByMe">
                 <router-link :to="{ name: 'edit', params: { id: house.id } }">
                   <img class="w-100" src="../assets/images/ic_edit@3x.png">
@@ -60,18 +60,18 @@
                 </a>
               </div>
               <router-link style="text-decoration: none;" :to="{ name: 'detail', params: { id: house.id } }">
-                <p class="m-0 p-0 house-details text-dark address bold">{{ house.location.street }} {{
+                <p class="m-0 p-0 house-details adress">{{ house.location.street }} {{
                   house.location.houseNumber }}</p>
-                <p class="m-0 py-lg-2 house-details text-dark">€ {{ house.price }}</p>
-                <p class="m-0 p-0 house-details text-warning">
+                <p class="m-0 py-lg-2 price">€ {{ house.price }}</p>
+                <p class="m-0 p-0 house-details text-warning zip">
                   {{ house.location.zip }} {{ house.location.houseNumberAddition ?
                     house.location.houseNumberAddition + " " : '' }}{{ house.location.city }} </p>
                 <div class="icon-wrapper d-flex w-100">
-                  <span class="py-3 text-dark text-left"><img class="image-icon" src="../assets/images/ic_bed@3x.png">
+                  <span class="py-3 text-dark text-left icon-text"><img class="image-icon" src="../assets/images/ic_bed@3x.png">
                     {{ house.rooms.bedrooms }}</span>
-                  <span class="p-3 text-dark text-left"><img class="image-icon" src="../assets/images/ic_bath@3x.png">
+                  <span class="p-3 text-dark text-left icon-text"><img class="image-icon" src="../assets/images/ic_bath@3x.png">
                     {{ house.rooms.bathrooms }} </span>
-                  <span class="pr-3 pt-3 pb-3 text-dark text-left"><img class="image-icon"
+                  <span class="pr-3 pt-3 pb-3 text-dark text-left icon-text"><img class="image-icon"
                       src="../assets/images/ic_size@3x.png"> {{ house.size }} m²</span>
                 </div>
               </router-link>
@@ -81,7 +81,7 @@
       </div>
       <div v-else class="noresult-img">
         <img class="w-100" src="../assets/images/img_empty_houses@3x.png">
-        <h3 class="text-center mt-5">No results found.</h3>
+        <h3 class="text-center">No results found.</h3>
         <h3 class="text-center">Please try another keyword.</h3>
       </div>
 

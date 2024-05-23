@@ -60,21 +60,7 @@ export default {
     },
     async submitForm() {
       try {
-        const response = await axios.put(`https://api.intern.d-tt.nl/api/houses/${this.house.id}`, {
-          price: this.form.price,
-          bedrooms: this.form.bedrooms,
-          bathrooms: this.form.bathrooms,
-          size: this.form.size,
-          streetName: this.form.streetName,
-          houseNumber: this.form.houseNumber,
-          houseNumberAddition: this.form.numberAddition,
-          zip: this.form.zip,
-          city: this.form.city,
-          constructionYear: this.form.constructionYear,
-          hasGarage: this.form.hasGarage,
-          description: this.form.description
-        }, 
-        {
+        const response = await axios.put(`https://api.intern.d-tt.nl/api/houses/${this.house.id}`,this.form, {
           headers: {
             'X-Api-Key': process.env.VUE_APP_API_KEY
           }
@@ -127,24 +113,31 @@ export default {
       }
     },
     createImagePreview() {
-      const imgInp = document.getElementById("imginput");
-      const imgPreview = document.getElementById("imgPreview");
+      var imgInp = document.getElementById("imginput");
+      var imgPreview = document.getElementById("imgPreview");
       this.imageUploadContainer = document.getElementById("imageUploadContainer");
       this.imagePreviewContainer = document.getElementById("imagePreviewContainer");
 
       const [file] = imgInp.files;
       if (file) {
         imgPreview.src = URL.createObjectURL(file);
-        this.selectedImage = file;
       }
       this.imageUploadContainer.style.display = "block";
       this.imagePreviewContainer.style.display = "none";
     },
     unloadImagePreview() {
-      if (this.imageUploadContainer && this.imagePreviewContainer) {
-        this.selectedImage = null;
-        this.imageUploadContainer.style.display = "none";
-        this.imagePreviewContainer.style.display = "block";
+      this.imageUploadContainer.style.display = "none";
+      this.imagePreviewContainer.style.display = "block";
+    },
+    handleFileChange(event) {
+      const files = event.target.files;
+      if (files && files.length > 0) {
+        this.file = files[0];
+        this.fileName = this.file.name;
+        this.formData = new FormData();
+        this.formData.append("image", this.file);
+
+        this.createImagePreview();
       }
     }
   }

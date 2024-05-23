@@ -7,6 +7,32 @@
     padding: 8px;
   }
 
+  .adress {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1rem; // 18px / 16px
+    line-height: 1.5;
+    color: $dark;
+  }
+
+  .price {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    font-size: 1rem; // 18px / 16px
+    color: $dark;
+  }
+
+  .zip {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    font-size: 1rem; // 18px / 16px
+    color: $secondary-color;
+  }
+
+  .icon-text{
+    font-size: 0.5rem;
+  }
+
   .filter {
     flex-direction: column;
     align-items: flex-start;
@@ -50,14 +76,6 @@
     display: none;
   }
 
-  .house-details {
-    font-size: 0.7em;
-
-    .address {
-      font-size: 0.6em;
-    }
-  }
-
   .icon-wrapper {
     font-size: 0.8em;
   }
@@ -77,5 +95,9 @@
     padding-bottom: 3rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    img
+    {
+      margin-bottom: 4rem;
+    }
   }
 }
