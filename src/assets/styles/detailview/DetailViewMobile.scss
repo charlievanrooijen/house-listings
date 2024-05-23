@@ -8,6 +8,10 @@
         width: 20%;
     }
 
+    .modal-content {
+        width: 100%;
+    }
+
     .house-detail-container {
         border-top-left-radius: 12.5%;
         border-top-right-radius: 12.5%;
@@ -23,27 +27,23 @@
         padding: 1rem;
     }
 
-    .desktop-return
-    {
+    .desktop-return {
         display: none !important;
     }
 
-    .desktop-delete
-    {
+    .desktop-delete {
         display: none;
     }
 
-    .mobile-delete
-    {
+    .mobile-delete {
         display: block;
     }
-    
-    .mobile-arrow
-    {
+
+    .mobile-arrow {
         color: white;
     }
 
-    .noresult-img{
+    .noresult-img {
         margin-top: 8rem;
         margin-bottom: 2rem;
         margin-left: 2rem;

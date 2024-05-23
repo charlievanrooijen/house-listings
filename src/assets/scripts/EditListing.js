@@ -21,7 +21,10 @@ export default {
       },
       showModal: false,
       houseToDelete: null,
-      selectedImage: null // To hold the selected image file
+      selectedImage: null,
+      file: null,
+      fileName: "",
+      formData: new FormData()
     };
   },
   created() {
@@ -37,7 +40,6 @@ export default {
           }
         });
         this.house = response.data[0];
-        // Initialize the form with the house details
         if (this.house) {
           this.form = {
             price: this.house.price,
@@ -60,19 +62,15 @@ export default {
     },
     async submitForm() {
       try {
-        const response = await axios.put(`https://api.intern.d-tt.nl/api/houses/${this.house.id}`,this.form, {
+        const response = await axios.put(`https://api.intern.d-tt.nl/api/houses/${this.house.id}`, this.form, {
           headers: {
             'X-Api-Key': process.env.VUE_APP_API_KEY
           }
         });
         console.log('Listing updated successfully:', response.data);
 
-        // Upload the image if one is selected
-        if (this.selectedImage) {
-          const formData = new FormData();
-          formData.append('image', this.selectedImage);
-
-          await axios.post(`https://api.intern.d-tt.nl/api/houses/${this.house.id}/upload`, formData, {
+        if (this.file) {
+          await axios.post(`https://api.intern.d-tt.nl/api/houses/${this.house.id}/upload`, this.formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
               'X-Api-Key': process.env.VUE_APP_API_KEY
@@ -94,7 +92,7 @@ export default {
           }
         });
         console.log('Listing deleted successfully:', response.data);
-        this.$router.push('/'); // Redirect after deletion
+        this.$router.push('/');
       } catch (error) {
         console.error('Error deleting listing:', error.response ? error.response.data : error.message);
       }

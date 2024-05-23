@@ -18,6 +18,15 @@
   align-items: center;
 }
 
+
+
+#clearImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+}
+
 .return-link-mobile {
   position: absolute;
   left: 0;
@@ -38,7 +47,10 @@
   margin-bottom: 1rem;
 }
 
-#imageUploadContainer,
+#imageUploadContainer {
+  position: relative;
+}
+
 #imageUpload {
   cursor: pointer;
   border: 2px dashed #ccc;

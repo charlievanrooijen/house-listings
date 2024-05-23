@@ -73,7 +73,7 @@
             </div>
           </div>
         </div>
-        <div class="col-12 col-lg-5 px-lg-5 p-4">
+        <div class="col-12 col-lg-5 px-lg-5 px-4">
           <h2 class="m-3">Recommended for you</h2>
           <div class="row bg-light my-1 p-2 rounded mx-1">
             <div class="col-5 d-flex align-items-center">
@@ -101,7 +101,7 @@
     </div>
   </div>
   <div v-if="showModal" class="modal-overlay">
-    <div class="modal-content bg-light w-lg-25" style="width: 100vw">
+    <div class="modal-content bg-light rounded" style="width: 100vw">
       <h2 class="bold">Delete listing</h2>
       <h3 class="mt-4 text-center m-0">Are you sure you want to delete this listing?</h3>
       <h3 class="mb-4 text-center">This action cannot be undone</h3>
@@ -109,7 +109,7 @@
         <div class="col-12 mb-3">
           <button @click="confirmDelete" class="bold btn btn-primary text-light w-75">YES DELETE</button>
         </div>
-        <div class="col-12">
+        <div class="col-12 py-3">
           <button @click="closeModal" class="bold btn btn-secondary text-light w-75">GO BACK</button>
         </div>
       </div>

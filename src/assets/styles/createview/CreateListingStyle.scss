@@ -1,35 +1,51 @@
 @import '../../../global.scss';
 
-.inputContainer
-{
+.inputContainer {
     width: 100%;
     text-align: left;
-    input, select
-    {
-        padding: 0.7rem;
+
+    input,
+    select {
+        padding: 1rem;
     }
-    
+
 }
 
-.image-upload-container
-{
-    padding-left: 5rem;
-    padding-bottom: 3.5rem !important;
-    padding-right: 5rem;
-    padding-top: 3.5rem !important;
+#imageUploadContainer {
+    position: relative;
+}
+
+
+#imageUpload {
+    cursor: pointer;
+    border: 2px dashed #ccc;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#clearImage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+}
+
+.image-upload-container {
+    padding-left: 3rem !important;
+    padding-bottom: 3rem !important;
+    padding-right: 3rem !important;
+    padding-top: 3rem !important;
     width: 40%;
 }
 
-.edit-background-image
-{
+.edit-background-image {
     background-image: url("../../images/img_background@3x.png");
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.btn-mobile
-{
+.btn-mobile {
     width: 100%;
 }
-
-

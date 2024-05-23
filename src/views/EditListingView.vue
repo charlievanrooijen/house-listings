@@ -24,7 +24,7 @@
               v-model="form.houseNumber" required>
           </div>
           <div class="col-6 inputContainer mb-3">
-            <label for="numberAddition" class="form-label">Number Addition (optional)</label>
+            <label for="numberAddition" class="form-label">Addition (optional)</label>
             <input placeholder="e.g A" type="text" class="form-control" id="numberAddition"
               v-model="form.numberAddition">
           </div>
@@ -97,9 +97,8 @@
           <textarea placeholder="Enter description" class="form-control" id="description" v-model="form.description"
             rows="3" required></textarea>
         </div>
-        <div class="p-5">
-          <button type="submit" class="btn btn-primary">Update Listing</button>
-          <button type="button" class="btn btn-danger" @click="showDeleteModal(this.house.id)">Delete Listing</button>
+        <div class="py-3 d-flex flex-row-reverse">
+          <button type="submit" class="btn btn-primary w-50 text-light bold">SAVE</button>
         </div>
       </form>
       <div v-else>

@@ -31,7 +31,7 @@ export default {
           }
         });
         console.log('Listing deleted successfully:', response.data);
-        this.$router.push('/list'); // Navigate to list view after deletion
+        this.$router.push('/'); // Navigate to list view after deletion
       } catch (error) {
         console.error('Error deleting listing:', error.response ? error.response.data : error.message);
       }

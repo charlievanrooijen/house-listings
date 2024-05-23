@@ -57,3 +57,19 @@
     z-index: 100;
   }
 }
+
+
+
+.nav-link {
+  text-decoration: none;
+  color: $info; 
+  font-weight: 900 !important;
+  background-color: transparent !important;
+}
+
+.active {
+  color: $dark !important; 
+  font-weight: 900;
+  background-color: transparent !important;
+  text-decoration: none !important;
+}
