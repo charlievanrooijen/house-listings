@@ -1,10 +1,7 @@
-
 import axios from 'axios';
 
 export default {
   name: 'CreateListing',
-  imageUploadContainer: null,
-  imagePreviewContainer: null,
   data() {
     return {
       form: {
@@ -20,7 +17,10 @@ export default {
         constructionYear: '',
         hasGarage: false,
         description: ''
-      }
+      },
+      file: null,
+      fileName: "",
+      formData: new FormData(),
     };
   },
   methods: {
@@ -32,50 +32,46 @@ export default {
             'X-Api-Key': process.env.VUE_APP_API_KEY
           }
         });
-        houseId = response.data.id
+        houseId = response.data.id;
         console.log('Listing created successfully:', response.data);
       } catch (error) {
         console.error('Error creating listing:', error.response ? error.response.data : error.message);
       }
       if (houseId) {
         try {
-          // Upload the image
-          var imageinput = document.getElementById("imginput").value;
-          console.log(imageinput);
-          if (imageinput) {
-            const formData = new FormData();
-            formData.append('image', imageinput);
+          console.log(this.formData);
 
-            var response2 = await axios.post(`https://api.intern.d-tt.nl/api/houses/${houseId}/upload`, formData, {
-              headers: {
-                'Content-Type': 'multipart/form-data',
-                'X-Api-Key': process.env.VUE_APP_API_KEY
-              }
-            });
-            console.log('Image uploaded successfully');
-            console.log('Listing created successfully:', response2.data);
-          }
+          var response2 = await axios.post(`https://api.intern.d-tt.nl/api/houses/${houseId}/upload`, this.formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+              'X-Api-Key': process.env.VUE_APP_API_KEY
+            }
+          });
+
+          console.log(response2);
+
+          this.form = {
+            price: '',
+            bedrooms: '',
+            bathrooms: '',
+            size: '',
+            streetName: '',
+            houseNumber: '',
+            numberAddition: '',
+            zip: '',
+            city: '',
+            constructionYear: '',
+            hasGarage: false,
+            description: ''
+          };
+          this.file = null;
+          this.fileName = "";
         } catch (error) {
-          console.error('Error creating listing:', error.response2 ? error.response2.data : error.message);
+          console.error('Error uploading image:', error.response ? error.response.data : error.message);
+        } finally {
+          this.$router.push('/');
         }
       }
-
-      this.$router.push('/');
-      this.form = {
-        price: '',
-        bedrooms: '',
-        bathrooms: '',
-        size: '',
-        streetName: '',
-        houseNumber: '',
-        numberAddition: '',
-        zip: '',
-        city: '',
-        constructionYear: '',
-        hasGarage: false,
-        description: ''
-      };
-      this.selectedImage = null;
     },
     createImagePreview() {
       var imgInp = document.getElementById("imginput");
@@ -83,20 +79,27 @@ export default {
       this.imageUploadContainer = document.getElementById("imageUploadContainer");
       this.imagePreviewContainer = document.getElementById("imagePreviewContainer");
 
-      const [file] = imgInp.files
+      const [file] = imgInp.files;
       if (file) {
         imgPreview.src = URL.createObjectURL(file);
       }
-      this.imageSelected = true;
-
-      this.imageSelected = false;
       this.imageUploadContainer.style.display = "block";
       this.imagePreviewContainer.style.display = "none";
     },
     unloadImagePreview() {
-      this.imageSelected = false;
       this.imageUploadContainer.style.display = "none";
       this.imagePreviewContainer.style.display = "block";
+    },
+    handleFileChange(event) {
+      const files = event.target.files;
+      if (files && files.length > 0) {
+        this.file = files[0];
+        this.fileName = this.file.name;
+        this.formData = new FormData();
+        this.formData.append("image", this.file);
+
+        this.createImagePreview();
+      }
     }
   }
 };

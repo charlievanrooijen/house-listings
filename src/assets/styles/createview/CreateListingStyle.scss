@@ -8,6 +8,16 @@
     {
         padding: 0.7rem;
     }
+    
+}
+
+.image-upload-container
+{
+    padding-left: 5rem;
+    padding-bottom: 3.5rem !important;
+    padding-right: 5rem;
+    padding-top: 3.5rem !important;
+    width: 40%;
 }
 
 .edit-background-image
@@ -15,6 +25,11 @@
     background-image: url("../../images/img_background@3x.png");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.btn-mobile
+{
+    width: 100%;
 }
 
 

@@ -116,8 +116,8 @@ a {
 }
 
 .image-upload-container {
-  border-style: dashed solid;
-  border: dashed 0.5rem $info;
+  border: 2px dashed #ccc;
+  border-radius: 15px;
   position: relative;
 }
 

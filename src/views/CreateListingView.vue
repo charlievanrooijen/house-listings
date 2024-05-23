@@ -1,14 +1,17 @@
 <template>
   <div class="edit-background-image pagecontainer">
-    <div class="form-container bg-transparent row d-flex align-start p-3 m-0">
-      <div>
+    <div class="form-wrapper bg-transparent row">
+      <div class="">
         <router-link class="return-link-desktop text-left" to="/">
           <h3 class="text-dark"><i class="fa-solid fa-arrow-left"> </i> Back to overview </h3>
         </router-link>
       </div>
-      <div class="col-12 my-3">
-          <router-link class="return-link-mobile text-dark" to="/"><i style="font-size: 2rem; font-weight: 600" class="fa-solid fa-arrow-left pl-3"></i></router-link>
-          <h2 class="text-dark create-new-title bold m-0">Create New Listing</h2>
+      <div class="col-12 my-5">
+        <router-link class="return-link-mobile text-dark" to="/">
+          <i style="font-size: 2rem; font-weight: 600" class="fa-solid fa-arrow-left pl-3">
+          </i>
+        </router-link>
+        <h2 class="text-dark create-new-title bold m-0">Create New Listing</h2>
       </div>
       <form class="col-12" @submit.prevent="submitForm">
         <div class="inputContainer mb-3">
@@ -23,7 +26,7 @@
               v-model="form.houseNumber" required>
           </div>
           <div class="col-6 inputContainer mb-3">
-            <label for="numberAddition" class="form-label">Number Addition (optional)</label>
+            <label for="numberAddition" class="form-label">Addition (optional)</label>
             <input placeholder="e.g A" type="text" class="form-control" id="numberAddition"
               v-model="form.numberAddition">
           </div>
@@ -37,17 +40,17 @@
           <input placeholder="e.g. Utrecht" type="text" class="form-control" id="city" v-model="form.city" required>
         </div>
         <div class="inputContainer mb-3">
-          <label for="city" class="form-label">Upload picture (PNG or JPG)*</label>
-          <input style="display: none;" @change="createImagePreview()" accept="image/*" type='file' id="imginput" />
-          <div id="imageUploadContainer" style="display: none;" class="image-upload-container w-50">
+          <label for="uploadImage" class="form-label">Upload picture (PNG or JPG)*</label>
+          <input style="display: none;" @change="handleFileChange" accept="image/*" type='file' id="imginput" />
+          <div id="imageUploadContainer" style="display: none;" class="w-50">
             <img class="w-100" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
             <img style="position: absolute; top: 0; right: 0%; width: 40px;" id="clearImage" src="../assets/images/ic_clear_white@3x.png"
               @click="unloadImagePreview()" />
           </div>
           <div onclick="document.getElementById('imginput').click()">
             <div id="imagePreviewContainer">
-              <div id="imageUpload" class="image-upload-container w-50 p-5">
-                <img class="w-100" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
+              <div id="imageUpload" class="image-upload-container">
+                <img class="uploadContainerImage" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
               </div>
             </div>
           </div>
@@ -92,7 +95,7 @@
           <textarea placeholder="Enter description" class="form-control" id="description" v-model="form.description"
             rows="3" required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Create Listing</button>
+        <button type="submit"  class="btn btn-primary btn-mobile">Create Listing</button>
       </form>
     </div>
   </div>

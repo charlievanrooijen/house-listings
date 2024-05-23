@@ -1,11 +1,13 @@
-@import './CreateListingStyle.scss';
+@import './EditListingStyle.scss';
 
 @media (min-width: 1025px) {
+    
     .form-wrapper
     {
         width: 30% !important;
         margin-left: 10rem !important;
         margin-top: 2rem !important;
+        background-color: black;
     }
 
     .return-link-desktop
@@ -16,6 +18,12 @@
     .return-link-mobile
     {
         display: none;
+    }
+
+    .create-new-title
+    {
+        margin: 0;
+        text-align: left !important;
     }
 
 }

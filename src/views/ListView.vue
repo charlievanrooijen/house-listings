@@ -10,7 +10,7 @@
             <i class="text-light fa-solid fa-plus"></i> CREATE NEW
           </a>
 
-          <a id="create-listing-link-mobile" style="display: flex; text-decoration: none; flex-direction: row-reverse;" class="absolute-top-right p-3" href="/create">
+          <a id="create-listing-link-mobile" style="display: flex; text-decoration: none; flex-direction: row-reverse;" class="absolute-top-right p-3 mt-3" href="/create">
             <i class="text-dark display-4 fa-solid fa-plus"></i>
           </a>
         </div>
