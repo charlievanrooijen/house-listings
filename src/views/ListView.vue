@@ -51,7 +51,7 @@
               </router-link>
             </div>
             <div class="col-7 col-g-8 position-relative">
-              <div class="edit-delete-container p-1 mt-3" v-if="house.madeByMe">
+              <div class="edit-delete-container p-1" v-if="house.madeByMe">
                 <router-link :to="{ name: 'edit', params: { id: house.id } }">
                   <img class="w-100" src="../assets/images/ic_edit@3x.png">
                 </router-link>

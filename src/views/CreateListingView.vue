@@ -40,17 +40,16 @@
           <input placeholder="e.g. Utrecht" type="text" class="form-control" id="city" v-model="form.city" required>
         </div>
         <div class="inputContainer mb-3">
-          <label for="uploadImage" class="form-label">Upload picture (PNG or JPG)*</label>
           <input style="display: none;" @change="handleFileChange" accept="image/*" type='file' id="imginput" />
-          <div id="imageUploadContainer" style="display: none;" class="w-50">
-            <img class="w-100" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
-            <img style="position: absolute; top: 0; right: 0; width: 40px;" id="clearImage" src="../assets/images/ic_clear_white@3x.png"
-              @click="unloadImagePreview()" />
+          <div id="imagePreviewContainer" style="display: none; position: relative;" class="w-50">
+            <img class="w-100" id="imgPreview" src="" alt="your image" />
+            <img id="clearImage" src="../assets/images/ic_clear_white@3x.png" @click="unloadImagePreview()" />
           </div>
           <div onclick="document.getElementById('imginput').click()">
-            <div id="imagePreviewContainer">
+            <div id="imageUploadContainer">
               <div id="imageUpload" class="image-upload-container">
-                <img class="uploadContainerImage" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
+                <img class="uploadContainerImage" id="imgPlaceholder" src="../assets/images/ic_plus_grey@3x.png"
+                  alt="your image" />
               </div>
             </div>
           </div>
@@ -92,10 +91,10 @@
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description*</label>
-          <textarea placeholder="Description" class="form-control" id="description" v-model="form.description"
-            rows="3" required></textarea>
+          <textarea placeholder="Description" class="form-control" id="description" v-model="form.description" rows="3"
+            required></textarea>
         </div>
-        <button type="submit"  class="btn btn-primary btn-mobile text-light bold">POST</button>
+        <button type="submit" class="btn btn-primary btn-mobile text-light bold">POST</button>
       </form>
     </div>
   </div>
