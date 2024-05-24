@@ -67,19 +67,40 @@ export default {
             'X-Api-Key': process.env.VUE_APP_API_KEY
           }
         });
+        
         console.log('Listing updated successfully:', response.data);
 
-        // if (this.file) {
-        //   await axios.post(`https://api.intern.d-tt.nl/api/houses/${this.house.id}/upload`, this.formData, {
-        //     headers: {
-        //       'Content-Type': 'multipart/form-data',
-        //       'X-Api-Key': process.env.VUE_APP_API_KEY
-        //     }
-        //   });
-        //   console.log('Image uploaded successfully');
-        // }
-
-        this.$router.push('/');
+        try {
+          console.log(this.formData);
+          var response2 = await axios.post(`https://api.intern.d-tt.nl/api/houses/${this.house.id}/upload`, this.formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+              'X-Api-Key': process.env.VUE_APP_API_KEY
+            }
+          });
+          console.log(response2);
+          this.form = {
+            price: '',
+            bedrooms: '',
+            bathrooms: '',
+            size: '',
+            streetName: '',
+            houseNumber: '',
+            numberAddition: '',
+            zip: '',
+            city: '',
+            constructionYear: '',
+            hasGarage: false,
+            description: ''
+          };
+          this.file = null;
+          this.fileName = "";
+          
+        } catch (error) {
+          console.error('Error uploading image:', error.response ? error.response.data : error.message);
+        } finally {
+          this.$router.push('/');
+        }
       } catch (error) {
         console.error('Error updating listing:', error.response ? error.response.data : error.message);
       }
@@ -125,7 +146,7 @@ export default {
       this.imageUploadContainer = document.getElementById("imageUploadContainer");
       this.imagePreviewContainer = document.getElementById("imagePreviewContainer");
       const imgInp = document.getElementById("imginput");
-      imgInp.value = ''; 
+      imgInp.value = '';
       this.file = null;
       this.fileName = "";
       this.formData = new FormData();
