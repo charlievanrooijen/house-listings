@@ -40,16 +40,13 @@
         <div class="inputContainer mb-3">
           <label for="city" class="form-label">Upload picture (PNG or JPG)*</label>
           <input style="display: none;" @change="createImagePreview()" accept="image/*" type='file' id="imginput" />
-          <div v-if="house.image">
-          <div id="imageUploadContainer" class="image-upload-container w-50">
+          <div>
+          <div id="imagePreviewContainer" class="image-upload-container w-50">
             <img class="w-100" :src="house.image"  id="imgPreview" alt="your image" />
-            <img style="position: absolute; top: 0; right: 0%; width: 40px;" id="clearImage"
-              src="../assets/images/ic_clear_white@3x.png" @click="unloadImagePreview()" />
+            <img id="clearImage" src="../assets/images/ic_clear_white@3x.png" @click="unloadImagePreview()" />
           </div>
-        </div>
-        <div v-else>
           <div onclick="document.getElementById('imginput').click()">
-            <div id="imagePreviewContainer">
+            <div style="display: none;" id="imageUploadContainer">
               <div id="imageUpload" class="image-upload-container w-50 p-5">
                 <img class="w-100" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
               </div>

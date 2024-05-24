@@ -12,10 +12,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
             <li class="nav-item mx-4">
-              <router-link class="nav-link text-secondary bold" to="/" exact-active-class="active"><h2>Houses</h2></router-link>
+              <router-link class="nav-link text-info bold" to="/" exact-active-class="active"><h2>Houses</h2></router-link>
             </li>
             <li class="nav-item mx-4">
-              <router-link class="nav-link text-secondary bold" to="/about" exact-active-class="active"><h2>About</h2></router-link>
+              <router-link class="nav-link text-info bold" to="/about" exact-active-class="active"><h2>About</h2></router-link>
             </li>
           </ul>
         </div>

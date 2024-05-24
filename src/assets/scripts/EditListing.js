@@ -62,22 +62,22 @@ export default {
     },
     async submitForm() {
       try {
-        const response = await axios.put(`https://api.intern.d-tt.nl/api/houses/${this.house.id}`, this.form, {
+        const response = await axios.post(`https://api.intern.d-tt.nl/api/houses/${this.house.id}`, this.form, {
           headers: {
             'X-Api-Key': process.env.VUE_APP_API_KEY
           }
         });
         console.log('Listing updated successfully:', response.data);
 
-        if (this.file) {
-          await axios.post(`https://api.intern.d-tt.nl/api/houses/${this.house.id}/upload`, this.formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-              'X-Api-Key': process.env.VUE_APP_API_KEY
-            }
-          });
-          console.log('Image uploaded successfully');
-        }
+        // if (this.file) {
+        //   await axios.post(`https://api.intern.d-tt.nl/api/houses/${this.house.id}/upload`, this.formData, {
+        //     headers: {
+        //       'Content-Type': 'multipart/form-data',
+        //       'X-Api-Key': process.env.VUE_APP_API_KEY
+        //     }
+        //   });
+        //   console.log('Image uploaded successfully');
+        // }
 
         this.$router.push('/');
       } catch (error) {
@@ -113,19 +113,24 @@ export default {
     createImagePreview() {
       var imgInp = document.getElementById("imginput");
       var imgPreview = document.getElementById("imgPreview");
-      this.imageUploadContainer = document.getElementById("imageUploadContainer");
-      this.imagePreviewContainer = document.getElementById("imagePreviewContainer");
 
       const [file] = imgInp.files;
       if (file) {
         imgPreview.src = URL.createObjectURL(file);
       }
-      this.imageUploadContainer.style.display = "block";
-      this.imagePreviewContainer.style.display = "none";
-    },
-    unloadImagePreview() {
       this.imageUploadContainer.style.display = "none";
       this.imagePreviewContainer.style.display = "block";
+    },
+    unloadImagePreview() {
+      this.imageUploadContainer = document.getElementById("imageUploadContainer");
+      this.imagePreviewContainer = document.getElementById("imagePreviewContainer");
+      const imgInp = document.getElementById("imginput");
+      imgInp.value = ''; 
+      this.file = null;
+      this.fileName = "";
+      this.formData = new FormData();
+      this.imageUploadContainer.style.display = "block";
+      this.imagePreviewContainer.style.display = "none";
     },
     handleFileChange(event) {
       const files = event.target.files;

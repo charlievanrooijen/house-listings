@@ -23,8 +23,8 @@
   }
 
   .navbar .nav-link.active {
-    background-color: #0056b3;
-    color: #fff;
+    text-decoration: none;
+    color: $dark !important;
   }
 
 }
@@ -51,16 +51,8 @@
 
 
 @media (min-width: 1025px) {
-  .footer
-  {
+  .footer {
     display: none;
     z-index: 100;
   }
-}
-
-.active {
-  color: $dark !important; 
-  font-weight: 900;
-  background-color: transparent !important;
-  text-decoration: none !important;
 }
