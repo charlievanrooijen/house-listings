@@ -1,21 +1,17 @@
 <template>
   <div id="app" class="navbar-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid container">
+      <div class="container container-dekstop">
         <router-link style="width: 10%;" class="navbar-brand text-light" to="/">
           <img class="w-100" src="./assets/images/img_logo_dtt@3x.png">
         </router-link>
-        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex">
+          <ul class="navbar-nav mb-2 mb-lg-0">
             <li class="nav-item mx-4">
-              <router-link class="nav-link text-info bold" to="/" exact-active-class="active"><h2>Houses</h2></router-link>
+              <router-link class="nav-link text-info bold" to="/" exact-active-class="active"><h1>Houses</h1></router-link>
             </li>
             <li class="nav-item mx-4">
-              <router-link class="nav-link text-info bold" to="/about" exact-active-class="active"><h2>About</h2></router-link>
+              <router-link class="nav-link text-info bold" to="/about" exact-active-class="active"><h1>About</h1></router-link>
             </li>
           </ul>
         </div>

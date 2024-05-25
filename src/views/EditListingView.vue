@@ -9,7 +9,7 @@
       <div class="col-12 my-4">
         <router-link class="return-link-mobile text-dark" to="/"><i style="font-size: 2rem; font-weight: 600"
             class="fa-solid fa-arrow-left pl-3"></i></router-link>
-        <h2 class="text-dark create-new-title bold">Edit Listing</h2>
+        <h1 class="text-dark bold m-0">Edit Listing</h1>
       </div>
       <form v-if="house" class="col-12" @submit.prevent="submitForm">
         <div class="inputContainer mb-3">
@@ -95,7 +95,7 @@
             rows="3" required></textarea>
         </div>
         <div class="py-3 d-flex flex-row-reverse">
-          <button type="submit" class="btn btn-primary w-50 text-light bold">SAVE</button>
+          <button type="submit" class="btn btn-primary py-3 w-50 text-light bold">SAVE</button>
         </div>
       </form>
       <div v-else>

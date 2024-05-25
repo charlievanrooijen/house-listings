@@ -1,7 +1,7 @@
 <template>
   <div class="edit-background-image pagecontainer">
     <div class="form-wrapper bg-transparent row">
-      <div class="">
+      <div class="return-container">
         <router-link class="return-link-desktop text-left" to="/">
           <h2 class="text-dark"><i class="fa-solid fa-arrow-left"> </i> Back to overview </h2>
         </router-link>
@@ -11,7 +11,7 @@
           <i style="font-size: 2rem; font-weight: 600" class="fa-solid fa-arrow-left pl-3">
           </i>
         </router-link>
-        <h1 class="text-dark list-heading bold m-0">Create New Listing</h1>
+        <h1 class="text-dark bold m-0">Create New Listing</h1>
       </div>
       <form class="col-12" @submit.prevent="submitForm">
         <div class="inputContainer mb-3">
@@ -40,6 +40,7 @@
           <input placeholder="e.g. Utrecht" type="text" class="form-control" id="city" v-model="form.city" required>
         </div>
         <div class="inputContainer mb-3">
+          <label for="city" class="form-label">Upload picture (PNG or JPG)*</label>
           <input style="display: none;" @change="handleFileChange" accept="image/*" type='file' id="imginput" />
           <div id="imagePreviewContainer" style="display: none; position: relative;" class="w-50">
             <img class="w-100" id="imgPreview" src="" alt="your image" />
@@ -94,7 +95,9 @@
           <textarea placeholder="Description" class="form-control" id="description" v-model="form.description" rows="3"
             required></textarea>
         </div>
-        <button type="submit" class="btn btn-primary btn-mobile text-light bold">POST</button>
+        <div class="py-3 d-flex flex-row-reverse">
+          <button type="submit" class="btn btn-primary py-3 w-50 text-light bold">POST</button>
+        </div>
       </form>
     </div>
   </div>

@@ -1,13 +1,6 @@
 @import './CreateListingStyle.scss';
 
 @media (min-width: 1025px) {
-    .form-wrapper
-    {
-        width: 25% !important;
-        margin-left: 15rem !important;
-        margin-top: 3rem !important;
-    }
-
     .return-link-desktop
     {
         text-decoration: none
@@ -17,5 +10,10 @@
     {
         display: none;
     }
-
+    
+    .form-label {
+      font-size: 0.8em;
+      font-weight: 700;
+      color: $secondary;
+    }
 }

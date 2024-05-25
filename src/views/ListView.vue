@@ -1,7 +1,7 @@
 <template>
   <div class="bg-waring m-0">
     <div class="container container-dekstop bg-transparent pagecontainer">
-      <div class="row">
+      <div class="row mb-1">
         <div class="col-12 col-lg-6">
           <h1 class="py-3 text-dark list-heading">Houses</h1>
         </div>
@@ -17,7 +17,7 @@
       </div>
       <div class="row">
         <div class="col-lg-6 col-sm-12">
-          <div class="input-group flex-nowrap mb-3 text-secondary position-relative rounded">
+          <div class="input-group flex-nowrap mb-3 text-secondary position-relative rounded w-75">
             <input v-model="searchQuery" type="text" class="form-control ps-5 bg-info" placeholder="Search for a house"
               aria-label="Search" aria-describedby="addon-wrapping">
             <span style="z-index: 1000;" class="position-absolute top-50 start-0 translate-middle-y ms-3">
@@ -40,7 +40,7 @@
         </div>
       </div>
       <div v-if="searchQuery && filteredHouses.length">
-        <h2 class="text-dark py-3 list-heading">{{ filteredHouses.length }} results found</h2>
+        <h1 class="text-dark py-3 list-heading">{{ filteredHouses.length }} results found</h1>
       </div>
       <div v-if="filteredHouses.length">
         <div v-for="(house, index) in filteredHouses" :key="index" class="rounded bg-light mb-3">
@@ -60,7 +60,7 @@
                 </a>
               </div>
               <router-link style="text-decoration: none;" :to="{ name: 'detail', params: { id: house.id } }">
-                <p class="m-0 p-0 pt-lg-3 house-details adress">{{ house.location.street }} {{
+                <p class="m-0 p-0 pt-lg-1 house-details adress">{{ house.location.street }} {{
                   house.location.houseNumber }}</p>
                 <p class="m-0 py-lg-2 price">€ {{ house.price }}</p>
                 <p class="m-0 p-0 house-details text-warning zip">
