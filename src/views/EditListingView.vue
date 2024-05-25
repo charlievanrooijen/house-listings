@@ -6,10 +6,10 @@
           <h3 class="text-dark"><i class="fa-solid fa-arrow-left"> </i> Back to overview </h3>
         </router-link>
       </div>
-      <div class="col-12 my-3">
+      <div class="col-12 my-4">
         <router-link class="return-link-mobile text-dark" to="/"><i style="font-size: 2rem; font-weight: 600"
             class="fa-solid fa-arrow-left pl-3"></i></router-link>
-        <h2 class="text-dark create-new-title bold m-0">Edit Listing</h2>
+        <h2 class="text-dark create-new-title bold">Edit Listing</h2>
       </div>
       <form v-if="house" class="col-12" @submit.prevent="submitForm">
         <div class="inputContainer mb-3">
@@ -41,8 +41,8 @@
           <label for="city" class="form-label">Upload picture (PNG or JPG)*</label>
           <input style="display: none;" @change="createImagePreview()" accept="image/*" type='file' id="imginput" />
           <div>
-          <div id="imagePreviewContainer" class="image-upload-container w-50">
-            <img class="w-100" :src="house.image"  id="imgPreview" alt="your image" />
+          <div id="imagePreviewContainer" class="image-preview-container w-50">
+            <img class="rounded" :src="house.image"  id="imgPreview" alt="your image" />
             <img id="clearImage" src="../assets/images/ic_clear_white@3x.png" @click="unloadImagePreview()" />
           </div>
           <div onclick="document.getElementById('imginput').click()">

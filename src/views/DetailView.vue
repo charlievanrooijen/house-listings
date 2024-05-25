@@ -6,7 +6,7 @@
             class="desktop-return"> Back to overview </span> </h3>
       </router-link>
       <div class="absolute-top-right mobile-delete" v-if="house && house.madeByMe">
-        <div class="row p-3">
+        <div class="row p-3  m-0">
           <div class="col-6 p-0 m-0 d-flex justify-content-center">
             <router-link :to="{ name: 'edit', params: { id: house.id } }">
               <img class="w-50" src="../assets/images/ic_edit_white@3x.png">
@@ -29,7 +29,7 @@
           <div class="house-detail-container bg-light w-100">
             <div class="row">
               <div class="col-12 p-0">
-                <h1>
+                <h1 class="p-2">
                   {{ house.location.street }} {{ house.location.houseNumber }} {{ house.location.houseNumberAddition }}
                 </h1>
               </div>
@@ -51,20 +51,20 @@
               </div>
             </div>
             <div class="house-detail icon-wrapper icon-container">
-              <span class="pr-3 pt-3 pb-3 text-dark text-left  bolder"><img class="image-icon"
+              <span class="pr-3 pt-3 pb-3 text-dark text-left"><img class="image-icon"
                   src="../assets/images/ic_price@3x.png"> {{ house.price }}</span>
-              <span class="pr-3 pt-3 pb-3 text-dark text-left  bolder"><img class="image-icon"
+              <span class="pr-3 pt-3 pb-3 text-dark text-left"><img class="image-icon"
                   src="../assets/images/ic_size@3x.png"> {{ house.size }} m²</span>
-              <span class="pr-3 pt-3 pb-3 text-dark text-left  bolder"><img class="image-icon"
-                  src="../assets/images/ic_construction_date@3x.png"> Built in {{ house.size }}</span>
+              <span class="pr-3 pt-3 pb-3 text-dark text-left"><img class="image-icon"
+                  src="../assets/images/ic_construction_date@3x.png"> Built in {{ house.constructionYear }}</span>
             </div>
             <div class="house-detail listing-information icon-wrapper icon-container">
-              <span class="text-dark text-left  bolder"><img class="image-icon" src="../assets/images/ic_bed@3x.png"> {{
+              <span class="text-dark text-left"><img class="image-icon" src="../assets/images/ic_bed@3x.png"> {{
                 house.rooms.bedrooms }}</span>
-              <span class="text-dark text-left  bolder"><img class="image-icon" src="../assets/images/ic_bath@3x.png">
+              <span class="text-dark text-left"><img class="image-icon" src="../assets/images/ic_bath@3x.png">
                 {{
                   house.rooms.bathrooms }} </span>
-              <span class="text-dark text-left  bolder"><img class="image-icon" src="../assets/images/ic_garage@3x.png">
+              <span class="text-dark text-left"><img class="image-icon" src="../assets/images/ic_garage@3x.png">
                 {{
                   house.hasGarage ? "yes" : "no" }}</span>
             </div>
@@ -74,15 +74,15 @@
           </div>
         </div>
         <div class="col-12 col-lg-5 px-lg-5 px-4">
-          <h2 class="m-3">Recommended for you</h2>
+          <h1 class="m-3">Recommended for you</h1>
           <div class="row bg-light my-1 p-2 rounded mx-1">
             <div class="col-5 d-flex align-items-center">
               <img :src="house.image" :alt="house.name" class="house-image rounded m-0" />
             </div>
-            <div class="col-7 p-1">
-              <h1 style="font-size: 1em;" class="p-0 m-0">Stokvisstraat 321</h1>
-              <h2 style="font-size: 0.7em;" class="pt-2 m-0">500.000</h2>
-              <h3 style="font-size: 0.7em;" class="pt-2 m-0">1011 AA Amsterdam</h3>
+            <div class="col-7 p-0 p-lg-2 p-1">
+              <h2 class="p-0 m-0 street">Stokvisstraat 321</h2>
+              <h2 class="pt-2 m-0 price">€500.000</h2>
+              <h3 class="pt-2 m-0 adress">1011 AA Amsterdam</h3>
               <div class="house-detail icon-wrapper icon-container pt-3">
                 <span class="text-dark text-left"><img class="image-icon" src="../assets/images/ic_bed@3x.png"> {{
                   house.rooms.bedrooms }}</span>

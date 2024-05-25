@@ -1,6 +1,6 @@
 <template>
   <div class="bg-waring m-0">
-    <div class="container bg-transparent pagecontainer">
+    <div class="container container-dekstop bg-transparent pagecontainer">
       <div class="row">
         <div class="col-12 col-lg-6">
           <h1 class="py-3 text-dark list-heading">Houses</h1>
@@ -17,7 +17,7 @@
       </div>
       <div class="row">
         <div class="col-lg-6 col-sm-12">
-          <div class="input-group flex-nowrap mb-3 text-secondary position-relative">
+          <div class="input-group flex-nowrap mb-3 text-secondary position-relative rounded">
             <input v-model="searchQuery" type="text" class="form-control ps-5 bg-info" placeholder="Search for a house"
               aria-label="Search" aria-describedby="addon-wrapping">
             <span style="z-index: 1000;" class="position-absolute top-50 start-0 translate-middle-y ms-3">
@@ -40,18 +40,18 @@
         </div>
       </div>
       <div v-if="searchQuery && filteredHouses.length">
-        <h2 class="text-dark py-3">{{ filteredHouses.length }} results found</h2>
+        <h2 class="text-dark py-3 list-heading">{{ filteredHouses.length }} results found</h2>
       </div>
       <div v-if="filteredHouses.length">
         <div v-for="(house, index) in filteredHouses" :key="index" class="rounded bg-light mb-3">
-          <div class="row rounded p-2">
-            <div class="col-5 col-lg-4 image-wrapper">
-              <router-link class="d-flex align-items-center h-100" style="text-decoration: none; overflow: hidden" :to="{ name: 'detail', params: { id: house.id } }">
-                <img :src="house.image" :alt="house.name" class="house-image" />
+          <div class="row p-2 p-lg-3">
+            <div class="col-5 col-lg-2 rounded image-wrapper">
+              <router-link class="d-flex align-items-center h-100 p-1 p-lg-2" style="text-decoration: none; overflow: hidden" :to="{ name: 'detail', params: { id: house.id } }">
+                <img :src="house.image" :alt="house.name" class="house-image house-image-list h-100" />
               </router-link>
             </div>
-            <div class="col-7 col-g-8 position-relative">
-              <div class="edit-delete-container p-1" v-if="house.madeByMe">
+            <div class="col-7 col-lg-10 position-relative">
+              <div class="edit-delete-container p-3 p-lg-4" v-if="house.madeByMe">
                 <router-link :to="{ name: 'edit', params: { id: house.id } }">
                   <img class="w-100" src="../assets/images/ic_edit@3x.png">
                 </router-link>
@@ -60,7 +60,7 @@
                 </a>
               </div>
               <router-link style="text-decoration: none;" :to="{ name: 'detail', params: { id: house.id } }">
-                <p class="m-0 p-0 house-details adress">{{ house.location.street }} {{
+                <p class="m-0 p-0 pt-lg-3 house-details adress">{{ house.location.street }} {{
                   house.location.houseNumber }}</p>
                 <p class="m-0 py-lg-2 price">€ {{ house.price }}</p>
                 <p class="m-0 p-0 house-details text-warning zip">

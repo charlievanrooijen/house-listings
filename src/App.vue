@@ -2,7 +2,7 @@
   <div id="app" class="navbar-wrapper">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid container">
-        <router-link style="width: 15%;" class="navbar-brand text-light" to="/">
+        <router-link style="width: 10%;" class="navbar-brand text-light" to="/">
           <img class="w-100" src="./assets/images/img_logo_dtt@3x.png">
         </router-link>
         <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

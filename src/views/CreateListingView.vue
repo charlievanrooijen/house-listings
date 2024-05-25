@@ -3,15 +3,15 @@
     <div class="form-wrapper bg-transparent row">
       <div class="">
         <router-link class="return-link-desktop text-left" to="/">
-          <h3 class="text-dark"><i class="fa-solid fa-arrow-left"> </i> Back to overview </h3>
+          <h2 class="text-dark"><i class="fa-solid fa-arrow-left"> </i> Back to overview </h2>
         </router-link>
       </div>
-      <div class="col-12 my-5">
+      <div class="col-12 my-4">
         <router-link class="return-link-mobile text-dark" to="/">
           <i style="font-size: 2rem; font-weight: 600" class="fa-solid fa-arrow-left pl-3">
           </i>
         </router-link>
-        <h2 class="text-dark create-new-title bold m-0">Create New Listing</h2>
+        <h1 class="text-dark list-heading bold m-0">Create New Listing</h1>
       </div>
       <form class="col-12" @submit.prevent="submitForm">
         <div class="inputContainer mb-3">

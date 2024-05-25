@@ -78,23 +78,24 @@ export default {
       const imgPreview = document.getElementById("imgPreview");
       this.imageUploadContainer = document.getElementById("imageUploadContainer");
       this.imagePreviewContainer = document.getElementById("imagePreviewContainer");
+
       console.log(this.imageUploadContainer);
       console.log(this.imagePreviewContainer);
       const [file] = imgInp.files;
       if (file) {
         imgPreview.src = URL.createObjectURL(file);
       }
-      this.imageUploadContainer.style.display = "block";
-      this.imagePreviewContainer.style.display = "none";
+      this.imageUploadContainer.style.display = "none";
+      this.imagePreviewContainer.style.display = "block";
     },
     unloadImagePreview() {
       const imgInp = document.getElementById("imginput");
-      imgInp.value = ''; // Reset input value to allow re-uploading the same image
-      this.file = null; // Clear file data
+      imgInp.value = '';
+      this.file = null;
       this.fileName = "";
       this.formData = new FormData();
-      this.imageUploadContainer.style.display = "none";
-      this.imagePreviewContainer.style.display = "block";
+      this.imageUploadContainer.style.display = "block";
+      this.imagePreviewContainer.style.display = "none";
     },
     handleFileChange(event) {
       const files = event.target.files;

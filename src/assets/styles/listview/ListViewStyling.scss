@@ -159,6 +159,13 @@ a {
   color: $primary-black;
 }
 
+.house-image
+{
+  height: 100%;
+  object-fit: cover;
+  object-position: left;
+}
+
 .icon-wrapper {
   display: flex;
   .icon-text {
