@@ -4,6 +4,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 16px;
+  box-sizing: border-box;
 }
 
 .house-image {
@@ -36,4 +37,5 @@ p {
 .house-detail-container {
   position: relative;
   padding: 1rem;
+  box-sizing: border-box;
 }

@@ -1,21 +1,21 @@
+@import './DetailViewStyle.scss';
+
 @media (min-width: 1025px) {
-    .edit-delete-container {
-        position: absolute;
-        top: 0 !important;
-        right: 1rem;
-        display: flex;
-        gap: 1rem;
-        width: 10%;
-    }
+  .edit-delete-container {
+    position: absolute;
+    top: 0 !important;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    width: 10%;
+  }
 
-    .desktop-delete
-    {
-        display: block;
-        width: 20% !important;
-    }
+  .desktop-delete {
+    display: block;
+    width: 20% !important;
+  }
 
-    .mobile-delete
-    {
-        display: block;
-    }
+  .mobile-delete {
+    display: none;
+  }
 }

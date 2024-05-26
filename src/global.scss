@@ -149,18 +149,6 @@ a {
   }
 }
 
-.absolute-top-right {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.absolute-top-left {
-  position: absolute;
-  top: 0px;
-  left: 0;
-}
-
 .filter-button {
   padding-top: 0;
   padding-bottom: 0;
@@ -170,4 +158,12 @@ a {
   .pagecontainer {
     padding-bottom: 5rem;
   }
+}
+
+// for cutting off the smaller image previews
+
+.house-image-list
+{
+  aspect-ratio: 1 / 1;
+  border-radius: 7%;
 }

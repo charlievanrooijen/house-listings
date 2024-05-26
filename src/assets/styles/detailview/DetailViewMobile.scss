@@ -1,48 +1,81 @@
+@import './DetailViewStyle.scss';
+
 @media (max-width: 1024px) {
-    .edit-delete-container {
-        position: absolute;
-        top: 0 !important;
-        right: 1rem;
-        display: flex;
-        gap: 1rem;
-        width: 20%;
-    }
+  .edit-delete-container {
+    position: absolute;
+    top: 0 !important;
+    right: 1rem;
+    display: flex;
+    gap: 1rem;
+    width: 20%;
+  }
 
-    .house-detail-container {
-        border-top-left-radius: 12.5%;
-        border-top-right-radius: 12.5%;
-        padding: 3rem;
-        z-index: 1;
-        margin-top: -2rem;
-    }
+  .topnavlink-mobile
+  {
+    position: absolute;
+  }
 
-    .top-nav-linkwrapper {
-        display: flex;
-        position: absolute;
-        align-items: left;
-        padding: 1rem;
-    }
+  .house-detail-container {
+    border-top-left-radius: 12.5%;
+    border-top-right-radius: 12.5%;
+    padding: 2rem 1rem;
+    z-index: 1;
+    margin-top: -2rem;
+    box-sizing: border-box;
+  }
 
-    .desktop-return {
-        display: none !important;
-    }
+  .desktop-return {
+    display: none !important;
+  }
 
-    .desktop-delete {
-        display: none;
-    }
+  .desktop-delete {
+    display: none;
+  }
 
-    .mobile-delete {
-        display: block;
-    }
+  .mobile-delete {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+  }
 
-    .mobile-arrow {
-        color: white;
-    }
+  .mobile-arrow {
+    color: white;
+  }
 
-    .noresult-img {
-        margin-top: 8rem;
-        margin-bottom: 2rem;
-        margin-left: 2rem;
-        margin-left: 2rem;
-    }
+  .noresult-img {
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+    margin-left: 2rem;
+  }
+
+  .house-detail-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .house-detail-container h3 {
+    font-size: 1rem;
+  }
+
+  .house-detail-container .icon-wrapper span {
+    font-size: 0.875rem;
+  }
+
+  .house-detail-container p {
+    font-size: 0.875rem;
+  }
+
+  .recommended {
+    margin: 1rem 0;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .recommended .house-image-list {
+    width: 100%;
+  }
+
+  .recommended{
+    font-size: 1rem;
+  }
 }

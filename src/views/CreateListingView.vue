@@ -42,8 +42,8 @@
         <div class="inputContainer mb-3">
           <label for="uploadPicture" class="form-label">Upload picture (PNG or JPG)*</label>
           <input style="display: none;" @change="handleFileChange" accept="image/*" type='file' id="imginput" />
-          <div id="imagePreviewContainer" style="display: none; position: relative;" class="w-50">
-            <img class="w-100" id="imgPreview" src="" alt="your image" />
+          <div id="imagePreviewContainer" style="display: none" class="image-preview-container w-50">
+            <img class="rounded house-image-list" id="imgPreview" src="" alt="your image" />
             <img id="clearImage" src="../assets/images/ic_clear_white@3x.png" @click="unloadImagePreview()" />
           </div>
           <div @click="triggerFileInput">

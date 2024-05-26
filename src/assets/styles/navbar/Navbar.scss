@@ -1,5 +1,7 @@
 @import '../../../global.scss';
 
+// desktop navigation
+
 @media (min-width: 1025px) {
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -30,6 +32,7 @@
   }
 }
 
+// mobile navigation
 
 @media (max-width: 1024px) {
   .footer {
