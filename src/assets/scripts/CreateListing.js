@@ -15,13 +15,30 @@ export default {
         zip: '',
         city: '',
         constructionYear: '',
-        hasGarage: false,
+        hasGarage: '',
         description: ''
       },
       file: null,
       fileName: "",
       formData: new FormData(),
     };
+  },
+  computed: {
+    isFormValid() {
+      return (
+        this.form.price &&
+        this.form.bedrooms &&
+        this.form.bathrooms &&
+        this.form.size &&
+        this.form.streetName &&
+        this.form.houseNumber &&
+        this.form.zip &&
+        this.form.city &&
+        this.form.constructionYear &&
+        this.form.description &&
+        this.form.hasGarage !== ''
+      );
+    }
   },
   methods: {
     async submitForm() {
@@ -61,7 +78,7 @@ export default {
             zip: '',
             city: '',
             constructionYear: '',
-            hasGarage: false,
+            hasGarage: '',
             description: ''
           };
           this.file = null;
@@ -72,6 +89,9 @@ export default {
           this.$router.push('/');
         }
       }
+    },
+    triggerFileInput() {
+      document.getElementById('imginput').click();
     },
     createImagePreview() {
       const imgInp = document.getElementById("imginput");

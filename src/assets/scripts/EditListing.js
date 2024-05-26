@@ -16,7 +16,7 @@ export default {
         zip: '',
         city: '',
         constructionYear: '',
-        hasGarage: false,
+        hasGarage: '',
         description: ''
       },
       showModal: false,
@@ -29,6 +29,23 @@ export default {
   },
   created() {
     this.fetchHouseDetails();
+  },
+  computed: {
+    isFormValid() {
+      return (
+        this.form.price &&
+        this.form.bedrooms &&
+        this.form.bathrooms &&
+        this.form.size &&
+        this.form.streetName &&
+        this.form.houseNumber &&
+        this.form.zip &&
+        this.form.city &&
+        this.form.constructionYear &&
+        this.form.description &&
+        this.form.hasGarage !== ''
+      );
+    }
   },
   methods: {
     async fetchHouseDetails() {
@@ -90,7 +107,7 @@ export default {
             zip: '',
             city: '',
             constructionYear: '',
-            hasGarage: false,
+            hasGarage: '',
             description: ''
           };
           this.file = null;
@@ -98,11 +115,11 @@ export default {
           
         } catch (error) {
           console.error('Error uploading image:', error.response ? error.response.data : error.message);
-        } finally {
-          this.$router.push('/');
         }
       } catch (error) {
         console.error('Error updating listing:', error.response ? error.response.data : error.message);
+      } finally {
+        this.$router.push('/');
       }
     },
     async deleteListingById(id) {
@@ -131,6 +148,9 @@ export default {
         this.deleteListingById(this.houseToDelete);
       }
     },
+    triggerFileInput() {
+      document.getElementById('imginput').click();
+    },
     createImagePreview() {
       var imgInp = document.getElementById("imginput");
       var imgPreview = document.getElementById("imgPreview");
@@ -146,7 +166,7 @@ export default {
       this.imageUploadContainer = document.getElementById("imageUploadContainer");
       this.imagePreviewContainer = document.getElementById("imagePreviewContainer");
       const imgInp = document.getElementById("imginput");
-      imgInp.value = '';
+      imgInp.value = null;
       this.file = null;
       this.fileName = "";
       this.formData = new FormData();

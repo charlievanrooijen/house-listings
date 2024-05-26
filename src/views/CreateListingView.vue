@@ -40,13 +40,13 @@
           <input placeholder="e.g. Utrecht" type="text" class="form-control" id="city" v-model="form.city" required>
         </div>
         <div class="inputContainer mb-3">
-          <label for="city" class="form-label">Upload picture (PNG or JPG)*</label>
+          <label for="uploadPicture" class="form-label">Upload picture (PNG or JPG)*</label>
           <input style="display: none;" @change="handleFileChange" accept="image/*" type='file' id="imginput" />
           <div id="imagePreviewContainer" style="display: none; position: relative;" class="w-50">
             <img class="w-100" id="imgPreview" src="" alt="your image" />
             <img id="clearImage" src="../assets/images/ic_clear_white@3x.png" @click="unloadImagePreview()" />
           </div>
-          <div onclick="document.getElementById('imginput').click()">
+          <div @click="triggerFileInput">
             <div id="imageUploadContainer">
               <div id="imageUpload" class="image-upload-container">
                 <img class="uploadContainerImage" id="imgPlaceholder" src="../assets/images/ic_plus_grey@3x.png"
@@ -66,8 +66,8 @@
           </div>
           <div class="inputContainer col-6">
             <label for="hasGarage" class="form-label">Has Garage*</label>
-            <select class="form-select" id="hasGarage" v-model="form.hasGarage">
-              <option :value="false" disabled selected>Select</option>
+            <select class="form-select" id="hasGarage" v-model="form.hasGarage" required>
+              <option disabled value="">Select</option>
               <option :value="true">Yes</option>
               <option :value="false">No</option>
             </select>
@@ -96,7 +96,7 @@
             required></textarea>
         </div>
         <div class="py-3 d-flex flex-row-reverse">
-          <button type="submit" class="btn btn-primary py-3 w-50 text-light bold">POST</button>
+          <button type="submit" class="btn btn-primary py-3 w-50 text-light bold" :disabled="!isFormValid">POST</button>
         </div>
       </form>
     </div>

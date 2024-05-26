@@ -38,21 +38,19 @@
           <input placeholder="e.g. Utrecht" type="text" class="form-control" id="city" v-model="form.city" required>
         </div>
         <div class="inputContainer mb-3">
-          <label for="city" class="form-label">Upload picture (PNG or JPG)*</label>
-          <input style="display: none;" @change="createImagePreview()" accept="image/*" type='file' id="imginput" />
-          <div>
+          <label for="uploadPicture" class="form-label">Upload picture (PNG or JPG)*</label>
+          <input style="display: none;" @change="handleFileChange" accept="image/*" type='file' id="imginput" />
           <div id="imagePreviewContainer" class="image-preview-container w-50">
-            <img class="rounded" :src="house.image"  id="imgPreview" alt="your image" />
+            <img class="rounded" :src="house.image" id="imgPreview" alt="your image" />
             <img id="clearImage" src="../assets/images/ic_clear_white@3x.png" @click="unloadImagePreview()" />
           </div>
-          <div onclick="document.getElementById('imginput').click()">
-            <div style="display: none;" id="imageUploadContainer">
+          <div @click="triggerFileInput">
+            <div style="display: none" id="imageUploadContainer">
               <div id="imageUpload" class="image-upload-container w-50 p-5">
-                <img class="w-100" id="imgPreview" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
+                <img class="w-100" id="imgPlaceholder" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
               </div>
             </div>
           </div>
-        </div>
         </div>
         <div class="inputContainer mb-3">
           <label for="price" class="form-label">Price*</label>
@@ -65,8 +63,8 @@
           </div>
           <div class="inputContainer col-6">
             <label for="hasGarage" class="form-label">Has Garage*</label>
-            <select class="form-select" id="hasGarage" v-model="form.hasGarage">
-              <option :value="false" disabled selected>Select</option>
+            <select class="form-select" id="hasGarage" v-model="form.hasGarage" required>
+              <option disabled value="">Select</option>
               <option :value="true">Yes</option>
               <option :value="false">No</option>
             </select>
@@ -95,7 +93,7 @@
             rows="3" required></textarea>
         </div>
         <div class="py-3 d-flex flex-row-reverse">
-          <button type="submit" class="btn btn-primary py-3 w-50 text-light bold">SAVE</button>
+          <button type="submit" class="btn btn-primary py-3 w-50 text-light bold" :disabled="!isFormValid">SAVE</button>
         </div>
       </form>
       <div v-else>
@@ -119,6 +117,7 @@
     </div>
   </div>
 </template>
+
 <script src="../assets/scripts/EditListing.js"></script>
 <style src="../assets/styles/editview/EditListingStyle.scss" lang="scss"></style>
 <style src="../assets/styles/editview/EditListingDesktop.scss" lang="scss"></style>
