@@ -209,36 +209,6 @@ a {
   }
 }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: $background-white;
-  padding: 2rem;
-  border-radius: 8px;
-  text-align: center;
-  width: 25%;
-}
-
-.modal-message {
-  margin: 1rem 0;
-}
-
-.modal-btn {
-  margin-top: 1rem;
-  width: 75%;
-}
-
 #clearImage {
   position: absolute; 
   top: 0; 

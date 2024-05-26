@@ -52,7 +52,7 @@
             </div>
             <div class="house-detail icon-wrapper icon-container">
               <span class="pr-3 pt-3 pb-3 text-dark text-left"><img class="image-icon"
-                  src="../assets/images/ic_price@3x.png"> {{ house.price }}</span>
+                  src="../assets/images/ic_price@3x.png"> {{ $currencyWithoutSign(house.price) }}</span>
               <span class="pr-3 pt-3 pb-3 text-dark text-left"><img class="image-icon"
                   src="../assets/images/ic_size@3x.png"> {{ house.size }} m²</span>
               <span class="pr-3 pt-3 pb-3 text-dark text-left"><img class="image-icon"
@@ -100,24 +100,25 @@
       <p>Loading house details...</p>
     </div>
   </div>
-  <div v-if="showModal" class="modal-overlay">
-    <div class="modal-content bg-light rounded" style="width: 100vw">
-      <h2 class="bold">Delete listing</h2>
-      <h3 class="mt-4 text-center m-0">Are you sure you want to delete this listing?</h3>
-      <h3 class="mb-4 text-center">This action cannot be undone</h3>
-      <div class="modal-actions row">
-        <div class="col-12 mb-3">
-          <button @click="confirmDelete" class="bold btn btn-primary text-light w-75">YES DELETE</button>
-        </div>
-        <div class="col-12 py-3">
-          <button @click="closeModal" class="bold btn btn-secondary text-light w-75">GO BACK</button>
+      <div v-if="showModal" class="modal-overlay">
+        <div class="modal-content bg-light">
+          <h2 class="bold">Delete listing</h2>
+          <h3 class="mt-4 text-center m-0">Are you sure you want to delete this listing?</h3>
+          <h3 class="mb-4 text-center">This action cannot be undone</h3>
+          <div class="modal-actions row">
+            <div class="col-12 mb-3">
+              <button @click="confirmDelete" class="bold btn btn-primary text-light w-75">YES DELETE</button>
+            </div>
+            <div class="col-12">
+              <button @click="closeModal" class="bold btn btn-secondary text-light w-75">GO BACK</button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 </template>
 
 <script src="../assets/scripts/DetailView.js"></script>
 <style src="../assets/styles/detailview/DetailViewStyle.scss" lang="scss"></style>
 <style src="../assets/styles/detailview/DetailViewMobile.scss" lang="scss"></style>
 <style src="../assets/styles/detailview/DetailViewDesktop.scss" lang="scss"></style>
+<style src="../assets/styles/modal.scss" lang="scss"></style>

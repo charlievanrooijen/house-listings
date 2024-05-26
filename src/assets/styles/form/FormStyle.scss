@@ -1,0 +1,40 @@
+@import '../../../global.scss';
+
+.inputContainer {
+  width: 100%;
+  text-align: left;
+  input,
+  select {
+    padding: 1rem;
+  }
+}
+
+#imageUploadContainer {
+  position: relative;
+}
+
+#imageUpload {
+  cursor: pointer;
+  border: 2px dashed #ccc;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#clearImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+}
+
+.edit-background-image {
+  background-image: url("../../images/img_background@3x.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.btn-mobile {
+  width: 100%;
+}

@@ -135,4 +135,4 @@
 
 </template>
 
-<style src="../assets/styles/About.scss" lang="scss"></style>
+<style src="../assets/styles/aboutview/About.scss" lang="scss"></style>

@@ -1,0 +1,75 @@
+@import '../form/FormStyle.scss';
+
+@media (max-width: 1024px) {
+    .form-page-title {
+        text-align: center !important;
+    }
+
+    .return-link-desktop {
+        display: none;
+    }
+
+    .return-link-mobile {
+        padding-left: 1rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 3rem;
+        margin-left: 1rem;
+        font-size: 2rem;
+    }
+
+    .form-wrapper {
+        width: 100% !important;
+        margin-top: 2rem !important;
+    }
+
+    .pagecontainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .create-new-title {
+        margin: 0;
+        text-align: center !important;
+    }
+
+    .form-control {
+        padding: 1.2rem !important;
+    }
+
+    .form-label {
+        font-weight: 900;
+    }
+
+    .edit-background-image {
+        background-color: #f0f0f0;
+    }
+
+    .form-container {
+        width: 100%;
+        max-width: 800px;
+        background: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .create-new-title-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .inputContainer {
+        margin-bottom: 1rem;
+    }
+
+    #imgPreview {
+        max-width: 100%;
+        height: auto;
+    }
+}

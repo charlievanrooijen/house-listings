@@ -1,0 +1,28 @@
+@import '../form/FormStyle.scss';
+
+@media (min-width: 1025px) {
+    .form-page-title {
+        text-align: left;
+    }
+
+    .return-link-mobile {
+        display: none;
+    }
+
+    .form-label {
+        font-size: 0.8em;
+        font-weight: 700;
+        color: $secondary;
+    }
+
+    .form-wrapper {
+        width: 30vw !important;
+        margin-left: 20rem !important;
+        margin-top: 2rem !important;
+    }
+
+    .create-new-title {
+        margin: 0;
+        text-align: left !important;
+    }
+}

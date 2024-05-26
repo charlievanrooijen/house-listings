@@ -7,9 +7,10 @@
         </router-link>
       </div>
       <div class="col-12 my-4">
-        <router-link class="return-link-mobile text-dark" to="/"><i style="font-size: 2rem; font-weight: 600"
-            class="fa-solid fa-arrow-left pl-3"></i></router-link>
-        <h1 class="text-dark bold m-0">Edit Listing</h1>
+        <router-link class="return-link-mobile text-dark" to="/">
+          <i class="fa-solid fa-arrow-left pl-3"></i>
+        </router-link>
+        <h1 class="form-page-title">Edit Listing</h1>
       </div>
       <form v-if="house" class="col-12" @submit.prevent="submitForm">
         <div class="inputContainer mb-3">
@@ -100,7 +101,7 @@
         <p>Loading house details...</p>
       </div>
       <div v-if="showModal" class="modal-overlay">
-        <div class="modal-content bg-light w-lg-25 w-100">
+        <div class="modal-content bg-light">
           <h2 class="bold">Delete listing</h2>
           <h3 class="mt-4 text-center m-0">Are you sure you want to delete this listing?</h3>
           <h3 class="mb-4 text-center">This action cannot be undone</h3>
@@ -119,6 +120,7 @@
 </template>
 
 <script src="../assets/scripts/EditListing.js"></script>
-<style src="../assets/styles/editview/EditListingStyle.scss" lang="scss"></style>
-<style src="../assets/styles/editview/EditListingDesktop.scss" lang="scss"></style>
-<style src="../assets/styles/editview/EditListingMobile.scss" lang="scss"></style>
+<style src="../assets/styles/form/FormStyle.scss" lang="scss"></style>
+<style src="../assets/styles/form/FormDesktop.scss" lang="scss"></style>
+<style src="../assets/styles/form/FormMobile.scss" lang="scss"></style>
+<style src="../assets/styles/modal.scss" lang="scss"></style>

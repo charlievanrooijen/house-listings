@@ -2,16 +2,16 @@
   <div class="edit-background-image pagecontainer">
     <div class="form-wrapper bg-transparent row">
       <div class="return-container">
-        <router-link class="return-link-desktop text-left" to="/">
-          <h2 class="text-dark"><i class="fa-solid fa-arrow-left"> </i> Back to overview </h2>
+        <router-link class="return-link-desktop" to="/">
+          <h2 class="text-dark text-left"><i class="fa-solid fa-arrow-left"> </i> Back to overview </h2>
         </router-link>
       </div>
       <div class="col-12 my-4">
         <router-link class="return-link-mobile text-dark" to="/">
-          <i style="font-size: 2rem; font-weight: 600" class="fa-solid fa-arrow-left pl-3">
+          <i class="fa-solid fa-arrow-left pl-3">
           </i>
         </router-link>
-        <h1 class="text-dark bold m-0">Create New Listing</h1>
+        <h1 class="form-page-title">Create New Listing</h1>
       </div>
       <form class="col-12" @submit.prevent="submitForm">
         <div class="inputContainer mb-3">
@@ -22,7 +22,7 @@
         <div class="row">
           <div class="col-6 inputContainer mb-3">
             <label for="houseNumber" class="form-label">House Number*</label>
-            <input placeholder="Enter the house number" type="number" class="form-control" id="houseNumber"
+            <input placeholder="Enter house number" type="number" class="form-control" id="houseNumber"
               v-model="form.houseNumber" required>
           </div>
           <div class="col-6 inputContainer mb-3">
@@ -104,6 +104,6 @@
 </template>
 
 <script src="../assets/scripts/CreateListing.js"></script>
-<style src="../assets/styles/createview/CreateListingStyle.scss" lang="scss"></style>
-<style src="../assets/styles/createview/CreateListingDesktop.scss" lang="scss"></style>
-<style src="../assets/styles/createview/CreateListingMobile.scss" lang="scss"></style>
+<style src="../assets/styles/form/FormStyle.scss" lang="scss"></style>
+<style src="../assets/styles/form/FormDesktop.scss" lang="scss"></style>
+<style src="../assets/styles/form/FormMobile.scss" lang="scss"></style>
