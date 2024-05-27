@@ -2,7 +2,7 @@
   <div class="container-lg bg-transparent">
     <div class="top-nav-linkwrapper w-100">
       <router-link style="text-decoration: none" to="/">
-        <h3 class="text-dark py-lg-3">
+        <h3 class="mobile-return text-dark py-lg-3">
           <i class="mobile-arrow fa-solid fa-arrow-left"></i>
           <span class="desktop-return">Back to overview</span>
         </h3>
@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="col-12 col-lg-5 px-lg-5 px-4">
-          <h1 class="mx-3 ,mb-3">Recommended for you</h1>
+          <h1 class="mx-3 mb-3 my-3 m-lg-0">Recommended for you</h1>
           <div class="row bg-light my-1 p-2 rounded mx-1">
             <div class="col-5 d-flex align-items-center">
               <img :src="house.image" :alt="house.name" class="house-image rounded m-0">

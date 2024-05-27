@@ -186,5 +186,9 @@ export default {
     isImageSet() {
       return (this.formData.get('image') !== null)
     }
+  },
+  mounted()
+  {
+    this.formData.append("image", this.file);
   }
 };

@@ -10,8 +10,7 @@
     width: 20%;
   }
 
-  .topnavlink-mobile
-  {
+  .topnavlink-mobile {
     position: absolute;
   }
 
@@ -41,6 +40,11 @@
 
   .mobile-arrow {
     color: white;
+  }
+
+  .mobile-return {
+    position: absolute;
+    top: 1.7rem;
   }
 
   .noresult-img {
@@ -75,7 +79,7 @@
     width: 100%;
   }
 
-  .recommended{
+  .recommended {
     font-size: 1rem;
   }
 }
