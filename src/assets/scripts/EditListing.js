@@ -43,7 +43,8 @@ export default {
         this.form.city &&
         this.form.constructionYear &&
         this.form.description &&
-        this.form.hasGarage !== ''
+        this.form.hasGarage !== '' &&
+        this.isImageSet()
       );
     }
   },
@@ -84,7 +85,7 @@ export default {
             'X-Api-Key': process.env.VUE_APP_API_KEY
           }
         });
-        
+
         console.log('Listing updated successfully:', response.data);
 
         try {
@@ -112,7 +113,7 @@ export default {
           };
           this.file = null;
           this.fileName = "";
-          
+
         } catch (error) {
           console.error('Error uploading image:', error.response ? error.response.data : error.message);
         }
@@ -152,12 +153,11 @@ export default {
       document.getElementById('imginput').click();
     },
     createImagePreview() {
-      var imgInp = document.getElementById("imginput");
-      var imgPreview = document.getElementById("imgPreview");
-
+      this.imgPreview = document.getElementById("imgPreview");
+      const imgInp = document.getElementById("imginput");
       const [file] = imgInp.files;
       if (file) {
-        imgPreview.src = URL.createObjectURL(file);
+        this.imgPreview.src = URL.createObjectURL(file);
       }
       this.imageUploadContainer.style.display = "none";
       this.imagePreviewContainer.style.display = "block";
@@ -166,7 +166,7 @@ export default {
       this.imageUploadContainer = document.getElementById("imageUploadContainer");
       this.imagePreviewContainer = document.getElementById("imagePreviewContainer");
       const imgInp = document.getElementById("imginput");
-      imgInp.value = null;
+      imgInp.value = '';
       this.file = null;
       this.fileName = "";
       this.formData = new FormData();
@@ -180,9 +180,11 @@ export default {
         this.fileName = this.file.name;
         this.formData = new FormData();
         this.formData.append("image", this.file);
-
         this.createImagePreview();
       }
+    },
+    isImageSet() {
+      return (this.formData.get('image') !== null)
     }
   }
 };

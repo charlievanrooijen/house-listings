@@ -63,10 +63,10 @@
               <router-link style="text-decoration: none;" :to="{ name: 'detail', params: { id: house.id } }">
                 <p class="m-0 p-0 pt-lg-1 house-details adress">{{ house.location.street }} {{
                   house.location.houseNumber }} {{ house.location.houseNumberAddition ?
-                    house.location.houseNumberAddition + " " : '' }}</p>
+                    house.location.houseNumberAddition.toUpperCase() + " " : '' }}</p>
                 <p class="m-0 py-lg-2 price">{{ $currencyWithSign(house.price) }}</p>
                 <p class="m-0 p-0 house-details text-warning zip">
-                  {{ house.location.zip }} {{ house.location.city }} </p>
+                  {{ house.location.zip.toUpperCase() }} {{ house.location.city }} </p>
                 <div class="icon-wrapper d-flex w-100">
                   <span class="py-3 text-dark icon-text"><img class="image-icon" src="../assets/images/ic_bed@3x.png">
                     {{ house.rooms.bedrooms }}</span>

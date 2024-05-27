@@ -36,7 +36,8 @@ export default {
         this.form.city &&
         this.form.constructionYear &&
         this.form.description &&
-        this.form.hasGarage !== ''
+        this.form.hasGarage !== '' &&
+        this.isImageSet()
       );
     }
   },
@@ -50,22 +51,17 @@ export default {
           }
         });
         houseId = response.data.id;
-        console.log('Listing created successfully:', response.data);
       } catch (error) {
         console.error('Error creating listing:', error.response ? error.response.data : error.message);
       }
       if (houseId) {
         try {
-          console.log(this.formData);
-
-          var response2 = await axios.post(`https://api.intern.d-tt.nl/api/houses/${houseId}/upload`, this.formData, {
+          await axios.post(`https://api.intern.d-tt.nl/api/houses/${houseId}/upload`, this.formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
               'X-Api-Key': process.env.VUE_APP_API_KEY
             }
           });
-
-          console.log(response2);
 
           this.form = {
             price: '',
@@ -95,15 +91,9 @@ export default {
     },
     createImagePreview() {
       const imgInp = document.getElementById("imginput");
-      const imgPreview = document.getElementById("imgPreview");
-      this.imageUploadContainer = document.getElementById("imageUploadContainer");
-      this.imagePreviewContainer = document.getElementById("imagePreviewContainer");
-
-      console.log(this.imageUploadContainer);
-      console.log(this.imagePreviewContainer);
       const [file] = imgInp.files;
       if (file) {
-        imgPreview.src = URL.createObjectURL(file);
+        this.imgPreview.src = URL.createObjectURL(file);
       }
       this.imageUploadContainer.style.display = "none";
       this.imagePreviewContainer.style.display = "block";
@@ -124,9 +114,23 @@ export default {
         this.fileName = this.file.name;
         this.formData = new FormData();
         this.formData.append("image", this.file);
-  
         this.createImagePreview();
       }
+    },
+    init()
+    {
+      this.imgPreview = document.getElementById("imgPreview");
+      this.imageUploadContainer = document.getElementById("imageUploadContainer");
+      this.imagePreviewContainer = document.getElementById("imagePreviewContainer");
+      console.log("imageUploadContainer :" + this.imageUploadContainer)
+      console.log("imagePreviewContainer :" + this.imagePreviewContainer)
+    },
+    isImageSet()
+    {
+      return (this.formData.get('image') !== null)
     }
+  },
+  mounted() {
+     this.init()
   }
 };

@@ -47,8 +47,9 @@
           </div>
           <div @click="triggerFileInput">
             <div style="display: none" id="imageUploadContainer">
-              <div id="imageUpload" class="image-upload-container w-50 p-5">
-                <img class="w-100" id="imgPlaceholder" src="../assets/images/ic_plus_grey@3x.png" alt="your image" />
+              <div id="imageUpload" class="image-upload-container">
+                <img class="uploadContainerImage" id="imgPlaceholder" src="../assets/images/ic_plus_grey@3x.png"
+                  alt="your image" />
               </div>
             </div>
           </div>
@@ -99,21 +100,6 @@
       </form>
       <div v-else>
         <p>Loading house details...</p>
-      </div>
-      <div v-if="showModal" class="modal-overlay">
-        <div class="modal-content bg-light">
-          <h2 class="bold">Delete listing</h2>
-          <h3 class="mt-4 text-center m-0">Are you sure you want to delete this listing?</h3>
-          <h3 class="mb-4 text-center">This action cannot be undone</h3>
-          <div class="modal-actions row">
-            <div class="col-12 mb-3">
-              <button @click="confirmDelete" class="bold btn btn-primary text-light w-75">YES DELETE</button>
-            </div>
-            <div class="col-12">
-              <button @click="closeModal" class="bold btn btn-secondary text-light w-75">GO BACK</button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
